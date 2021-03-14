@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Modal, ModalBody, ModalHeader, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
+import { Modal, ModalBody, ModalHeader, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
 
 
 const WatchlistDisplay = (props) => {
