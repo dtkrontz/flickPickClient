@@ -23,7 +23,7 @@ const WatchlistDisplay = (props) => {
             })
         }
         </div>
-    )
+    );
 };
 
 export default WatchlistDisplay;
