@@ -1,4 +1,4 @@
-
+import React from 'react';
 
 const DeleteWatchlistItem = (props) => {
     
@@ -11,9 +11,11 @@ const DeleteWatchlistItem = (props) => {
             })
         })
         .then(() => props.fetchWatchlist())
-    }
+    };
 
     return(
-
-    )
+        <div></div>
+    );
 }
+
+export default DeleteWatchlistItem;
