@@ -5,7 +5,7 @@ const WatchlistCreate = (props) => {
     const [title, setTitle] = useState('');
     const [rated, setRated] = useState('');
     const [runtime, setRuntime] = useState('');
-    const [genre, setgenre] = useState('');
+    const [genre, setGenre] = useState('');
     const [plot, setPlot] = useState('');
     const [poster, setPoster] = useState('');
     const [watched, setWatched] = useState('');
