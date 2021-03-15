@@ -5,8 +5,6 @@ import { Modal, ModalBody, ModalHeader, ListGroup, ListGroupItem, ListGroupItemH
 
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading} from 'reactstrap';
-import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
-import WatchlistDelete from './profile/watchlistDisplay/WatchlistDelete';
 import WatchlistCreate from './WatchlistCreate';
 
 const WatchlistDisplay = (props) => {
@@ -49,12 +47,6 @@ const WatchlistDisplay = (props) => {
                     <Row>
                         <Col>
                         <WatchlistCreate result={props.result} />
-                        </Col>
-                        <Col>
-                        <WatchlistEdit />
-                        </Col>
-                        <Col>
-                        <WatchlistDelete />
                         </Col>
                     </Row>
                 </ModalBody>
