@@ -1,3 +1,4 @@
+import LoginDisplay from './components/home/login/loginDisplay/LoginDisplay'
 //Landing page for users to search, signup, login
 
 import React, { useEffect, useState } from 'react';
