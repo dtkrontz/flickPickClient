@@ -20,6 +20,8 @@ const LoginDisplay = (props)=> {
      })
      .then(response => response.json())
      .then(data => {
+         console.log(data);
+
           props.updateToken(data.token);
      })
      setModal(false);
@@ -33,9 +35,11 @@ const LoginDisplay = (props)=> {
                        <Label> Username </Label>
                        <input id='username' name= 'username' type= 'text' required minLength= "4" onChange={(e) => setUserName(e.target.value)} value={username} >   
                        </input>
+                       <br/>
                        <Label> Password</Label>
                        <input id='password' name='password' type='password' required minLength='5' onChange={(e) => setPassword(e.target.value)} value={password}>
                        </input>
+                       <br />
                        <button onClick={handleSubmit}>Submit</button>
                   </Form>
                </Modal>

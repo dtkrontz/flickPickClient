@@ -7,6 +7,7 @@ import WatchlistTable from './watchlistDisplay/WatchlistTable';
 
 
 
+
 const Profile = (props) => {
 
     
