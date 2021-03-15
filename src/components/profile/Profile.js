@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import {Button} from 'reactstrap';
 import ProfileSearch from './ProfileSearch';
+import WatchlistTable from './watchlistDisplay/WatchlistTable';
+
 
 
 const Profile = (props) => {
@@ -12,8 +14,9 @@ const Profile = (props) => {
     return (
         <div className='home'>
             <p>Username:</p>
-            <button onClick={props.clearToken}>Logout</button>
-            <ProfileSearch />
+            <Button onClick={props.clearToken}>Logout</Button>
+            <ProfileSearch token={props.token}/>
+            <WatchlistTable token={props.token} />
         </div>
     )
 };
