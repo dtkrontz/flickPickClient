@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import {Table} from 'reactstrap';
 
-import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
-import WatchlistDelete from './profile/watchlistDisplay/WatchlistDelete';
+// import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
+// import WatchlistDelete from './profile/watchlistDisplay/WatchlistDelete';
 
 const WatchlistTable = (props) => {
 
