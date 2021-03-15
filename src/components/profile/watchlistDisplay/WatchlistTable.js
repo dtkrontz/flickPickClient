@@ -27,22 +27,24 @@ const WatchlistTable = (props) => {
             fetchWatchlist();
         }, []);
 
+        const Mapper = () => {
+            return watchlist.map((watchlist, index) => {
+                return(
+                <tr key={index}>
+                    <th scope="row">{watchlist.id}</th>
+                    <td>{watchlist.title}</td>
+                    <td>{watchlist.rated}</td>
+                    <td>{watchlist.runtime}</td>
+                </tr>
+                )
+            })
+        }
+
     return (
         <div>
-            {
-                watchlist.map((watchlist, index) => {
-                    return(
-                        <Table>
-                            <tr key={index}>
-                                <th scope="row">{watchlist.id}</th>
-                                <td>{watchlist.title}</td>
-                                <td>{watchlist.rated}</td>
-                                <td>{watchlist.runtime}</td>
-                            </tr>                      
-                        </Table>
-                    )
-                })
-            }
+            <Table>
+                {Mapper()}                                 
+            </Table>
         </div>
 
     );
