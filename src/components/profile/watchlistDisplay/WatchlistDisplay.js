@@ -1,11 +1,17 @@
 // modal display of search with add to watchlist item.
 
+import React, { useState, useEffect } from 'react';
+import { Modal, ModalBody, ModalHeader, ListGroup, ListGroupItem, ListGroupItemHeading, Button } from 'reactstrap';
+
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading} from 'reactstrap';
 import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
 import WatchlistDelete from './profile/watchlistDisplay/WatchlistDelete';
 
 const WatchlistDisplay = (props) => {
+    console.log(props);
+    const [modal, setModal] = useState(true);
+
     console.log(props);
     const [modal, setModal] = useState(true);
 
@@ -53,6 +59,8 @@ const WatchlistDisplay = (props) => {
                 })
             }
         </div>
+    );
+};
 
     );
 };
