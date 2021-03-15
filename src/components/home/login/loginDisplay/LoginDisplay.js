@@ -20,7 +20,8 @@ const LoginDisplay = (props)=> {
      })
      .then(response => response.json())
      .then(data => {
-          props.updateToken(data.sessionToken);
+         console.log(data);
+          props.updateToken(data.token);
      })
      setModal(false);
 

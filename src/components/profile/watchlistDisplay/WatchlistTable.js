@@ -39,7 +39,7 @@ const WatchlistTable = (props) => {
                                 <td>{watchlist.rated}</td>
                                 <td>{watchlist.runtime}</td>
                             </tr>
-
+                        
                         </Table>
                     )
                 })
