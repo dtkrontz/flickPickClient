@@ -1,3 +1,5 @@
+// Search bar on non-verified users
+
 import React, {useState, useEffect} from 'react';
 import {Button} from 'reactstrap';
 import DisplayResult from './DisplayResult';

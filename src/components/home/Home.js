@@ -1,3 +1,5 @@
+//Landing page for users to search, signup, login
+
 import React, { useEffect, useState } from 'react';
 import {Button} from 'reactstrap';
 import SearchComponent from '../Search.js';

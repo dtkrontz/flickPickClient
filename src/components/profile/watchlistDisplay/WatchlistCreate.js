@@ -1,3 +1,5 @@
+// responsible for sending the POST request to create a watchlist row in the server
+
 import React, {useState} from 'react';
 
 const WatchlistCreate = (props) => {

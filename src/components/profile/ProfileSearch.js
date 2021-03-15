@@ -1,3 +1,5 @@
+// Search when logged in to display add to watchlist button when searching.
+
 import React, {useState, useEffect} from 'react';
 import {Button} from 'reactstrap';
 import WatchlistDisplay from './watchlistDisplay/WatchlistDisplay';
@@ -42,3 +44,4 @@ const ProfileSearch = (props) => {
 };
 
 export default ProfileSearch;
+
