@@ -6,14 +6,14 @@ import {Button} from 'reactstrap';
 const WatchlistCreate = (props) => {
     console.log(props);
 
-    const [title, setTitle] = useState(props.result.Title);
-    const [rated, setRated] = useState(props.result.Rated);
-    const [runtime, setRuntime] = useState(props.result.Runtime);
-    const [genre, setGenre] = useState(props.result.Genre);
-    const [plot, setPlot] = useState(props.result.Plot);
-    const [poster, setPoster] = useState(props.result.Poster);
-    const [watched, setWatched] = useState(props.result.Watched);
-    const [recommend, setRecommend] = useState(props.result.Recommend);
+    const [title, setTitle] = useState(props.result[0].Title);
+    const [rated, setRated] = useState(props.result[0].Rated);
+    const [runtime, setRuntime] = useState(props.result[0].Runtime);
+    const [genre, setGenre] = useState(props.result[0].Genre);
+    const [plot, setPlot] = useState(props.result[0].Plot);
+    const [poster, setPoster] = useState(props.result[0].Poster);
+    const [watched, setWatched] = useState(props.result[0].Watched);
+    const [recommend, setRecommend] = useState(props.result[0].Recommend);
 
     const handleSubmit = (e) => {
         e.preventDefault();
