@@ -4,6 +4,7 @@ import './LoginDisplay.css';
 
 const LoginDisplay = (props)=> {
     console.log(props);
+
      const [username,setUserName] = useState('');
      const [password,setPassword] = useState('');
      const [modal, setModal] = useState(true);
