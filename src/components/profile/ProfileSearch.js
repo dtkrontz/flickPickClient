@@ -1,0 +1,1 @@
+// Search when logged in to display add to watchlist button when searching.

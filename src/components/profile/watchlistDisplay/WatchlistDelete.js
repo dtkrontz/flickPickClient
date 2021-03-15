@@ -1,20 +1,25 @@
+// will be called upon in watchlist display to send the delete request
+
 import React from 'react';
+import {Button} from 'reactstrap';
 
 const DeleteWatchlistItem = (props) => {
     
-    const deleteWatchlist = (watchlist) => {
-        fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
-            method: 'DELETE',
-            headers: new Headers ({
-                'Content-Type': 'application/json',
-                'Authorization': props.token
-            })
-        })
-        .then(() => props.fetchWatchlist())
-    };
+    // const deleteWatchlist = (watchlist) => {
+    //     fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
+    //         method: 'DELETE',
+    //         headers: new Headers ({
+    //             'Content-Type': 'application/json',
+    //             'Authorization': props.token
+    //         })
+    //     })
+    //     .then(() => props.fetchWatchlist())
+    // };
 
     return(
-        <div></div>
+        <div>
+            <Button color='danger' type='submit'>Delete from Watchlist</Button>
+        </div>
     );
 }
 
