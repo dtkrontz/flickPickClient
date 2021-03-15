@@ -8,26 +8,26 @@ function App() {
 
   const [sessionToken, setSessionToken] = useState('');
 
-  // const clearToken = () => {
-  //   localStorage.clear();
-  //   setSessionToken('');
-  // }
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken('');
+  }
 
-  // useEffect(() => {
-  //   if (localStorage.getItem('token')) {
-  //     setSessionToken(localStorage.getItem('token'));
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setSessionToken(localStorage.getItem('token'));
+    }
+  }, [])
 
-  // const updateToken = (newToken) => {
-  //   localStorage.setItem('token', newToken);
-  //   setSessionToken(newToken);
-  //   // console.log(sessionToken);
-  // }
+  const updateToken = (newToken) => {
+    localStorage.setItem('token', newToken);
+    setSessionToken(newToken);
+    // console.log(sessionToken);
+  }
 
   const authorizedViews = () => {
     // return (sessionToken !== localstorage.getItem('token') ? <Profile token={sessionToken} /> : <HomeComponent />)
-    return (sessionToken !== sessionToken ? <Profile token={sessionToken} /> : <HomeComponent /*updateToken={updateToken}*/ />)
+    return (sessionToken === localStorage.getItem('token') ? <Profile token={sessionToken} clearToken={clearToken} /> : <HomeComponent updateToken={updateToken} />)
   }
 
   return (
