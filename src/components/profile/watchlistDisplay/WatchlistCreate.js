@@ -14,7 +14,7 @@ const WatchlistCreate = (props) => {
     const [watched, setWatched] = useState(props.result.Watched);
     const [recommend, setRecommend] = useState(props.result.Recommend);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         fetch(`http://localhost:3000/watchlist/create`, {
             method: 'POST',

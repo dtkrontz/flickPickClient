@@ -8,9 +8,11 @@ import ProfileSearch from './ProfileSearch';
 const Profile = (props) => {
 
     
+    
     return (
         <div className='home'>
             <p>Username:</p>
+            <button onClick={props.clearToken}>Logout</button>
             <ProfileSearch />
         </div>
     )
