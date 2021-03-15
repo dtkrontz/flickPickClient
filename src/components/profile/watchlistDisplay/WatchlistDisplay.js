@@ -1,50 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import {Modal, ModalBody, ModalHeader, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
+import { Modal, ModalBody, ModalHeader, ListGroup, ListGroupItem, ListGroupItemHeading, Button } from 'reactstrap';
 
 
 const WatchlistDisplay = (props) => {
 
-    return(
-        <div>
-            <ListGroup>
-                {props.result.map(r => {
-                    return(
-                        <div>
-                            <img src={r.Poster} />
-                            <ListGroupItemHeading>{r.Title}</ListGroupItemHeading>
-                            <ListGroupItem>{r.Rated}</ListGroupItem>
-                            <ListGroupItem>{r.Runtime}</ListGroupItem>
-                            <ListGroupItem>{r.Genre}</ListGroupItem>
-                            <ListGroupItem>{r.Plot}</ListGroupItem>
-                        </div>
-                    )
-                })}
-            </ListGroup>
-        </div>
-    )
-            };
+    console.log(props);
+    const [modal, setModal] = useState(true);
 
-//     return (
-//         <div>
-//             {
-//             props.result.map( r => {
-//                 return(
-//                     <>
-//                     <img src={r.Poster} />
-//         <ListGroup>
-//                 <ListGroupItemHeading>{r.Title}</ListGroupItemHeading>
-//                 <ListGroupItem>{r.Rated}</ListGroupItem>
-//                 <ListGroupItem>{r.Runtime}</ListGroupItem>
-//                 <ListGroupItem>{r.Genre}</ListGroupItem>
-//                 <ListGroupItem>{r.Plot}</ListGroupItem>
-//         </ListGroup>
-//         </>
-//                 )
-//             })
-//         }
-//         </div>
-//     )
-// };
+    const handleModal = (event) => {
+        setModal(false);
+    }
+
+    useEffect (() => {
+        setModal(true);
+    }, [props.handleSubmit]);
+
+    return (
+        <div className='modal'>
+            {
+                props.result.map(r => {
+                    return (
+            <Modal isOpen={modal}>
+                <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>
+                <ModalBody>
+                    <Row>
+                        <Col>
+                            <img src={r.Poster} />
+                        </Col>
+                        <Col>
+                            <ListGroup>
+                                <ListGroupItemHeading>{r.Title}</ListGroupItemHeading>
+                                <ListGroupItem>{r.Rated}</ListGroupItem>
+                                <ListGroupItem>{r.Runtime}</ListGroupItem>
+                                <ListGroupItem>{r.Genre}</ListGroupItem>
+                                <ListGroupItem>{r.Plot}</ListGroupItem>
+                            </ListGroup>
+                        </Col>
+                    </Row>
+                </ModalBody>
+            </Modal>
+                    )
+                })
+            }
+        </div>
+
+    );
+};
 
 
 export default WatchlistDisplay;
