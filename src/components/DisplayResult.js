@@ -39,6 +39,11 @@ const DisplayResult = (props) => {
                             </ListGroup>
                         </Col>
                     </Row>
+                    <Row>
+                        <Col>
+                        <WatchlistEdit />
+                        </Col>
+                    </Row>
                 </ModalBody>
             </Modal>
                     )

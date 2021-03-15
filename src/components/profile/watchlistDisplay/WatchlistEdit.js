@@ -1,13 +1,13 @@
 // will be called upon in the WatchlistTable to handle marking watched and recommend as "true".
 
 import React, {useState} from 'react';
-import {Button} from 'reactstrap';
+import {Button, Form, Label} from 'reactstrap';
 
 const WatchlistEdit = (props) => {
 
     const [watchlist, setWatchlist] = useState([]);
-    const [watched, setWatched] = useState(false);
-    const [recommend, setRecommend] = useState(false);
+    const [watched, setWatched] = useState(props.fetch.watched);
+    const [recommend, setRecommend] = useState(props.fetch.recommend);
 
     // const watchlistUpdate = (event, watchlist) => {
     //     event.preventDefault();
@@ -25,8 +25,26 @@ const WatchlistEdit = (props) => {
     //     })
     // }
 
+    const handleSubmit = (e) => {
+        setWatched ? setWatched(false) : setWatched(true);
+        setRecommend ? setRecommend(false) : setRecommend(true);
+    }
+
     return(
-        <Button color='success' type='submit'>Add to Watchlist</Button>
+        <div>
+            <Form>
+                <Label>
+                <p>Watched: <input type='checkbox' value='Watched' onClick={(e) => handleSubmit(e)} />
+                </p>
+                </Label>
+                <br />
+                <Label>
+                <p>Recommend: <input type='checkbox' value='Watched' onClick={(e) => handleSubmit(e)} />
+                </p>
+                </Label>
+            </Form>
+            <Button color='success' type='submit'>Add to Watchlist</Button>
+        </div>
     )
 };
 

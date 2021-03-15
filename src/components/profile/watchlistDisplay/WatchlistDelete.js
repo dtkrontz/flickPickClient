@@ -14,11 +14,12 @@ const DeleteWatchlistItem = (props) => {
     //         })
     //     })
     //     .then(() => props.fetchWatchlist())
+    //     .then(props.fetchWatchlist)
     // };
 
     return(
         <div>
-            <Button color='danger' type='submit'>Delete from Watchlist</Button>
+            <Button color='danger' type='submit' /*onClick={deleteWatchListItem}*/>Remove from Watchlist</Button>
         </div>
     );
 }
