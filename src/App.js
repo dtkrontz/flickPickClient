@@ -2,11 +2,14 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
-function App() {
+import Home from './components/home/Home'
+
+
+const App=()=> {
   return (
-    <div className="App">
-      test
-    </div>
+<div className="App">
+  <HomeComponent/>
+</div>
   );
 }
 
