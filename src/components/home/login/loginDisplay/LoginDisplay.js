@@ -1,12 +1,12 @@
 import{useState} from 'react';
 import './loginDisplay.css';
 
-const Login = (props)=> {
+const LoginDisplay = (props)=> {
      const [username,setUserName] = useState('');
      const [password,setPassword] = useState('');
      const handleSubmit = (event) => {
      event.preventDefault();
-     fetch('http://localhost:4001/user/login',{
+     fetch('http://localhost:3000/user/login',{
           method: 'POST',
           body: JSON.stringify({user:{username: username, password:password }}),
           headers: new headers({
