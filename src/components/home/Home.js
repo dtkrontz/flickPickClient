@@ -12,10 +12,15 @@ const HomeComponent = (props) => {
     
     return (
         <div className='home'>
-            <Button>login</Button>
+            <button>login</button>
             <Button>signup</Button>
             <SearchComponent />
         </div>
+        // <div className='home'>
+        //  thing ? <Signup updateToken={props.updateToken} /> : <div><p>Signup</p></div>
+        //  thing ? <Login updateToken={props.updateToken} /> : <div><p>Login</p></div>
+        // <SearchComponent />
+        // </div>
     )
 };
 

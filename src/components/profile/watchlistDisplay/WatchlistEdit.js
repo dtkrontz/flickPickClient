@@ -26,6 +26,7 @@ const WatchlistEdit = (props) => {
     // }
 
     const handleSubmit = (e) => {
+        // watchlistUpdate();
         setWatched ? setWatched(false) : setWatched(true);
         setRecommend ? setRecommend(false) : setRecommend(true);
     }

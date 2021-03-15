@@ -3,7 +3,7 @@
 import React from 'react';
 import {Button} from 'reactstrap';
 
-const DeleteWatchlistItem = (props) => {
+const WatchlistDelete = (props) => {
     
     // const deleteWatchlist = (watchlist) => {
     //     fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
@@ -24,4 +24,4 @@ const DeleteWatchlistItem = (props) => {
     );
 }
 
-export default DeleteWatchlistItem;
+export default WatchlistDelete;
