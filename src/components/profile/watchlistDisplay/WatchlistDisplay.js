@@ -40,7 +40,7 @@ const WatchlistDisplay = (props) => {
                     </Row>
                     <Row>
                         <Col>
-                        <WatchlistCreate result={props.result} />
+                        <WatchlistCreate result={props.result} token={props.token}/>
                         </Col>
                     </Row>
                 </ModalBody>

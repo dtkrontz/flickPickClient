@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {Button} from 'reactstrap';
 
 const WatchlistCreate = (props) => {
+    console.log(props);
 
     const [title, setTitle] = useState(props.result.Title);
     const [rated, setRated] = useState(props.result.Rated);
@@ -24,9 +25,7 @@ const WatchlistCreate = (props) => {
                 runtime: runtime,
                 genre: genre,
                 plot: plot,
-                poster: poster,
-                watched: watched,
-                recommend: recommend
+                poster: poster
 
             }}),
             headers: new Headers ({
@@ -37,15 +36,15 @@ const WatchlistCreate = (props) => {
         .then((res) => res.json())
         .then((json) => {
             console.log(json);
-            setTitle('');
-            setRated('');
-            setRuntime('');
-            setGenre('');
-            setPlot('');
-            setPoster('');
-            setWatched('');
-            setRecommend('');
-            props.fetchWatchlist();
+            // setTitle('');
+            // setRated('');
+            // setRuntime('');
+            // setGenre('');
+            // setPlot('');
+            // setPoster('');
+            // setWatched('');
+            // setRecommend('');
+            // props.fetchWatchlist();
         });
     };
 

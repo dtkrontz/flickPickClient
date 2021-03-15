@@ -38,7 +38,7 @@ const ProfileSearch = (props) => {
         <div className='home'>
             <input type="text" placeholder="movie title" onChange={(e) => setTitle(e.target.value)} />
             <Button onClick={(event) => handleSubmit(event)}>Search</Button>
-            {display ? <WatchlistDisplay result= {result} handleSubmit={handleSubmit}/> : null}
+            {display ? <WatchlistDisplay result= {result} handleSubmit={handleSubmit} token={props.token}/> : null}
         </div>
     )
 };
