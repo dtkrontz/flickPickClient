@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {Button} from 'reactstrap';
 
 const WatchlistCreate = (props) => {
+    console.log(props.result);
     console.log(props);
 
     const [title, setTitle] = useState(props.result.Title);
