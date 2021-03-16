@@ -11,13 +11,13 @@ const LoginDisplay = (props)=> {
 
      const handleSubmit = (event) => {
      event.preventDefault();
-     fetch('http://localhost:3000/user/login',{
+     fetch('http://localhost:3000/user/signup',{
           method: 'POST',
           body: JSON.stringify({user:{username: username, password: password }}),
           headers: new Headers({
                'Content-Type': 'application/json'
           })
-     })
+      })
      .then(response => response.json())
      .then(data => {
          console.log(data);
@@ -26,18 +26,19 @@ const LoginDisplay = (props)=> {
      })
      setModal(false);
 
-}
+ }
      return (
           <div>
                <Modal isOpen={modal}  className='login'>
                     <ModalHeader>Login</ModalHeader>
+                    <p>test</p>
                   <Form onSubmit={handleSubmit}>
                        <Label> Username </Label>
                        <input id='username' name= 'username' type= 'text' required minLength= "4" onChange={(e) => setUserName(e.target.value)} value={username} >   
                        </input>
                        <br/>
                        <Label> Password</Label>
-                       <input id='password' name='password' type='password' required minLength='5' onChange={(e) => setPassword(e.target.value)} value={password}>
+                       <input id='password' name='password' type='password' required minLen-gth='5' onChange={(e) => setPassword(e.target.value)} value={password}>
                        </input>
                        <br />
                        <button onClick={handleSubmit}>Submit</button>
