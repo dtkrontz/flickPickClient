@@ -27,27 +27,48 @@ const WatchlistTable = (props) => {
             fetchWatchlist();
         }, []);
 
+        const Mapper = () => {
+            return watchlist.map((watchlist, index) => {
+                return(
+                <tr key={index}>
+                    <th scope="row">{watchlist.id}</th>
+                    <td>{watchlist.title}</td>
+                    <td>{watchlist.rated}</td>
+                    <td>{watchlist.runtime}</td>
+                </tr>
+                )
+            })
+        }
+
     return (
         <div>
-            {
-                watchlist.map((watchlist, index) => {
-                    return(
-                        <Table>
-                            <tr key={index}>
-                                <th scope="row">{watchlist.id}</th>
-                                <td>{watchlist.title}</td>
-                                <td>{watchlist.rated}</td>
-                                <td>{watchlist.runtime}</td>
-                            </tr>
-                        
-                        </Table>
-                    )
-                })
-            }
-
+            <Table>
+                {Mapper()}                                 
+            </Table>
         </div>
 
     );
 };
 
 export default WatchlistTable;
+
+// make a form on the end of the map (watchlist item row) the form will have the save img or delete buttons (small to fit things)
+
+/*
+Map => 
+Column key
+Wrapper
+Card
+CardActionArea
+CardMedia/
+Card Content
+Typography
+Card Content/
+CardActionArea/
+CardActions
+edit/delete things
+CardActions/
+Card/
+Wrapper/
+Column/
+*/

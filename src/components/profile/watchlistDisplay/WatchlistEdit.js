@@ -13,7 +13,7 @@ const WatchlistEdit = (props) => {
     //     event.preventDefault();
     //     fetch(`http://localhost:3000/watchlist/${props.watchlistToUpdate.id}`, {
     //         method: 'PUT',
-    //         body: JSON.stringify({watchlist: {}}),
+    //         body: JSON.stringify({watchlist: {watched: watched, recommend: recommend}}),
     //         headers: new Headers({
     //             'Content-Type': 'application/json',
     //             'Authorization': props.token
