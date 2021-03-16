@@ -8,27 +8,10 @@ import {Table} from 'reactstrap';
 
 const WatchlistTable = (props) => {
 
-    const [watchlist, setWatchlist] = useState([]);
-
-        const fetchWatchlist = () => {
-            fetch(`http://localhost:3000/watchlist/view`, {
-                method: 'GET',
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'Authorization': props.token
-                })
-            }).then(res => res.json())
-            .then(json => {
-                setWatchlist(json)
-            });
-        }
-
-        useEffect(()=> {
-            fetchWatchlist();
-        }, []);
+ 
 
         const Mapper = () => {
-            return watchlist.map((watchlist, index) => {
+            return props.watchlist.map((watchlist, index) => {
                 return(
                 <tr key={index}>
                     <th scope="row">{watchlist.id}</th>

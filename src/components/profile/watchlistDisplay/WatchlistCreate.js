@@ -37,15 +37,15 @@ const WatchlistCreate = (props) => {
         .then((res) => res.json())
         .then((json) => {
             console.log(json);
-            // setTitle('');
-            // setRated('');
-            // setRuntime('');
-            // setGenre('');
-            // setPlot('');
-            // setPoster('');
-            // setWatched('');
-            // setRecommend('');
-            // props.fetchWatchlist();
+            setTitle('');
+            setRated('');
+            setRuntime('');
+            setGenre('');
+            setPlot('');
+            setPoster('');
+            setWatched('');
+            setRecommend('');
+            props.fetchWatchlist();
         });
     };
 
