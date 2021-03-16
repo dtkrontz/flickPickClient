@@ -5,9 +5,6 @@ import {Button} from 'reactstrap';
 import ProfileSearch from './ProfileSearch';
 import WatchlistTable from './watchlistDisplay/WatchlistTable';
 
-
-
-
 const Profile = (props) => {
 
     const [watchlist, setWatchlist] = useState([]);
@@ -21,7 +18,8 @@ const Profile = (props) => {
             })
         }).then(res => res.json())
         .then(json => {
-            setWatchlist(json)
+            setWatchlist(json);
+            console.log('watchlist', json)
         });
     }
 

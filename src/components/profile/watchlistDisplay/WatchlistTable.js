@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import {Table, Button} from 'reactstrap';
 
-// import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
+import WatchlistEdit from './WatchlistEdit';
 
 const WatchlistTable = (props) => {
         const deleteWatchlistItem = (watchlist) => {
@@ -28,10 +28,8 @@ const WatchlistTable = (props) => {
                     <td>{watchlist.title}</td>
                     <td>{watchlist.rated}</td>
                     <td>{watchlist.runtime}</td>
-                    <td>Watched</td>
-                    <td>Recommend</td>
-                    <td>Save</td>
-                    <td><Button color='danger' onClick={() => {deleteWatchlistItem(watchlist)}}>Remove from Watchlist</Button></td>
+                    <td><WatchlistEdit watchlist={watchlist} fetchWatchlist={props.fetchWatchlist} /></td>
+                    <td><Button color='danger' onClick={() => {deleteWatchlistItem(watchlist)}}>Trashcan</Button></td>
                 </tr>
                 )
             })
@@ -41,7 +39,6 @@ const WatchlistTable = (props) => {
         <div>
             <Table>
                 {Mapper()}
-
             </Table>
         </div>
 
