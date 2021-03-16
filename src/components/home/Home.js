@@ -32,8 +32,8 @@ const HomeComponent = (props) => {
         <div className='home'>
             <button onClick={(e) => signupHandler(e)}>Signup</button>
             <button onClick={(e) => loginHandler(e)}>Login</button>
-            {signup ? <Signup updateToken={props.updateToken}/> : null}
-            {login ? <LoginDisplay updateToken={props.updateToken}/> : null}
+            {signup ? <Signup updateToken={props.updateToken} signup={setSignup}/> : null}
+            {login ? <LoginDisplay updateToken={props.updateToken} login={setLogin}/> : null}
         <SearchComponent />
         </div>
     )

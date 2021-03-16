@@ -29,6 +29,7 @@ const LoginDisplay = (props)=> {
 
  const handleModal = (event) => {
      setModal(false);
+     props.login(false);
  }
 
      return (
