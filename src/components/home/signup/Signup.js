@@ -26,13 +26,18 @@ const Signup = (props)=> {
           props.updateToken(data.token);
      })
      setModal(false);
-
 }
+
+const handleModal = (event) => {
+     setModal(false);
+     props.signup(false);
+ }
+
     return(
     <div>
     <Modal isOpen={modal}  className='Signup'>
          <ModalHeader>Signup</ModalHeader>
-         
+         <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>
        <Form onSubmit={handleSubmit}>
             <Label> Signup </Label>
             <input id='username' name= 'username' type= 'text' required minLength= "4" onChange={(e) => setUserName(e.target.value)} value={username} >   
