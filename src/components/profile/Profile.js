@@ -10,14 +10,32 @@ import WatchlistTable from './watchlistDisplay/WatchlistTable';
 
 const Profile = (props) => {
 
-    
+    const [watchlist, setWatchlist] = useState([]);
+
+    const fetchWatchlist = () => {
+        fetch(`http://localhost:3000/watchlist/view`, {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            })
+        }).then(res => res.json())
+        .then(json => {
+            setWatchlist(json)
+        });
+    }
+
+    useEffect(()=> {
+        fetchWatchlist();
+    });
+
     
     return (
         <div className='home'>
             <p>Username:</p>
             <Button onClick={props.clearToken}>Logout</Button>
-            <ProfileSearch token={props.token}/>
-            <WatchlistTable token={props.token} />
+            <ProfileSearch token={props.token} fetchWatchlist={fetchWatchlist}/>
+            <WatchlistTable watchlist={watchlist} token={props.token} />
         </div>
     )
 };
