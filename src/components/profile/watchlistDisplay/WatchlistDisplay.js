@@ -5,7 +5,7 @@ import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListG
 import WatchlistCreate from './WatchlistCreate';
 
 const WatchlistDisplay = (props) => {
-    console.log(props);
+    // console.log(props);
     const [modal, setModal] = useState(true);
 
     const handleModal = (event) => {
@@ -14,7 +14,7 @@ const WatchlistDisplay = (props) => {
 
     useEffect (() => {
         setModal(true);
-    }, [props.handleSubmit]);
+    }, []);
 
     return (
         <div className='modal'>

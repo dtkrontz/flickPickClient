@@ -15,13 +15,13 @@ const WatchlistTable = (props) => {
                     'Authorization': props.token
                 })
             })
-            .then(() => fetchWatchlist())
+            .then(() => props.fetchWatchlist())
             // .then(props.fetchWatchlist)
         };
  
         const Mapper = () => {
             return props.watchlist.map((watchlist, index) => {
-              console.log(index);
+            //   console.log(index);
                 return(
                 <tr key={index}>
                     <th scope="row">{watchlist.id}</th>

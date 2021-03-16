@@ -4,8 +4,8 @@ import React, {useState} from 'react';
 import {Button} from 'reactstrap';
 
 const WatchlistCreate = (props) => {
-    console.log(props.result);
-    console.log(props);
+    // console.log(props.result);
+    // console.log(props);
 
     const [title, setTitle] = useState(props.result[0].Title);
     const [rated, setRated] = useState(props.result[0].Rated);
@@ -37,14 +37,14 @@ const WatchlistCreate = (props) => {
         .then((res) => res.json())
         .then((json) => {
             console.log(json);
-            setTitle('');
-            setRated('');
-            setRuntime('');
-            setGenre('');
-            setPlot('');
-            setPoster('');
-            setWatched('');
-            setRecommend('');
+            // setTitle('');
+            // setRated('');
+            // setRuntime('');
+            // setGenre('');
+            // setPlot('');
+            // setPoster('');
+            // setWatched('');
+            // setRecommend('');
             props.fetchWatchlist();
         });
     };
