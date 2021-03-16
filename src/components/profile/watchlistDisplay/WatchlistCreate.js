@@ -13,8 +13,8 @@ const WatchlistCreate = (props) => {
     const [genre, setGenre] = useState(props.result[0].Genre);
     const [plot, setPlot] = useState(props.result[0].Plot);
     const [poster, setPoster] = useState(props.result[0].Poster);
-    const [watched, setWatched] = useState(props.result[0].Watched);
-    const [recommend, setRecommend] = useState(props.result[0].Recommend);
+    const [watched, setWatched] = useState(false);
+    const [recommend, setRecommend] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,7 +26,9 @@ const WatchlistCreate = (props) => {
                 runtime: runtime,
                 genre: genre,
                 plot: plot,
-                poster: poster
+                poster: poster,
+                watched: watched,
+                recommend: recommend
 
             }}),
             headers: new Headers ({
@@ -46,6 +48,7 @@ const WatchlistCreate = (props) => {
             // setWatched('');
             // setRecommend('');
             props.fetchWatchlist();
+            props.setModal(false);
         });
     };
 
