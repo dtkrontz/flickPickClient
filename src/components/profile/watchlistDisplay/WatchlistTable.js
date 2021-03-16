@@ -51,3 +51,24 @@ const WatchlistTable = (props) => {
 };
 
 export default WatchlistTable;
+
+// make a form on the end of the map (watchlist item row) the form will have the save img or delete buttons (small to fit things)
+
+/*
+Map => 
+Column key
+Wrapper
+Card
+CardActionArea
+CardMedia/
+Card Content
+Typography
+Card Content/
+CardActionArea/
+CardActions
+edit/delete things
+CardActions/
+Card/
+Wrapper/
+Column/
+*/
