@@ -11,7 +11,7 @@ const LoginDisplay = (props)=> {
 
      const handleSubmit = (event) => {
      event.preventDefault();
-     fetch('http://localhost:3000/user/signup',{
+     fetch('http://localhost:3000/user/login',{
           method: 'POST',
           body: JSON.stringify({user:{username: username, password: password }}),
           headers: new Headers({
@@ -25,14 +25,18 @@ const LoginDisplay = (props)=> {
           props.updateToken(data.token);
      })
      setModal(false);
-
  }
+
+ const handleModal = (event) => {
+     setModal(false);
+ }
+
      return (
           <div>
                <Modal isOpen={modal}  className='login'>
                     <ModalHeader>Login</ModalHeader>
-                    <p>test</p>
-                  <Form onSubmit={handleSubmit}>
+                    <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>                  
+                    <Form onSubmit={handleSubmit}>
                        <Label> Username </Label>
                        <input id='username' name= 'username' type= 'text' required minLength= "4" onChange={(e) => setUserName(e.target.value)} value={username} >   
                        </input>
