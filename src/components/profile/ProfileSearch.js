@@ -24,15 +24,17 @@ const ProfileSearch = (props) => {
     };
 
     const handleSubmit = (event) => {
+        setDisplay(false);
         setResult([]);
         searchFetch();
     }
 
+    // Do we need this?
     useEffect (() => {
         setDisplay(false);
     }, []);
 
-    console.log(result);
+    // console.log(result);
 
     return (
         <div className='home'>

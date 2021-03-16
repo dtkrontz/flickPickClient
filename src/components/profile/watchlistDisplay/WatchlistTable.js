@@ -21,7 +21,7 @@ const WatchlistTable = (props) => {
  
         const Mapper = () => {
             return props.watchlist.map((watchlist, index) => {
-              console.log(index);
+            //   console.log(index);
                 return(
                 <tr key={index}>
                     <th scope="row">{watchlist.id}</th>
