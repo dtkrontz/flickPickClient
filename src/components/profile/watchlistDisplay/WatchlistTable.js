@@ -15,7 +15,7 @@ const WatchlistTable = (props) => {
                     'Authorization': props.token
                 })
             })
-            .then(() => fetchWatchlist())
+            .then(() => props.fetchWatchlist())
             // .then(props.fetchWatchlist)
         };
  
