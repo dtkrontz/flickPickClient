@@ -1,23 +1,37 @@
 // display "GET" watchlist for a user, with watched and recommend and delete fields to "edit".
 
 import React, { useEffect, useState } from 'react';
-import {Table} from 'reactstrap';
+import {Table, Button} from 'reactstrap';
 
 // import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
-// import WatchlistDelete from './profile/watchlistDisplay/WatchlistDelete';
 
 const WatchlistTable = (props) => {
-
+        const deleteWatchlistItem = (watchlist) => {
+            // console.log(watchlist);
+            fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
+                method: 'DELETE',
+                headers: new Headers ({
+                    'Content-Type': 'application/json',
+                    'Authorization': props.token
+                })
+            })
+            .then(() => fetchWatchlist())
+            // .then(props.fetchWatchlist)
+        };
  
-
         const Mapper = () => {
             return props.watchlist.map((watchlist, index) => {
+              console.log(index);
                 return(
                 <tr key={index}>
                     <th scope="row">{watchlist.id}</th>
                     <td>{watchlist.title}</td>
                     <td>{watchlist.rated}</td>
                     <td>{watchlist.runtime}</td>
+                    <td>Watched</td>
+                    <td>Recommend</td>
+                    <td>Save</td>
+                    <td><Button color='danger' onClick={() => {deleteWatchlistItem(watchlist)}}>Remove from Watchlist</Button></td>
                 </tr>
                 )
             })
@@ -26,7 +40,8 @@ const WatchlistTable = (props) => {
     return (
         <div>
             <Table>
-                {Mapper()}                                 
+                {Mapper()}
+
             </Table>
         </div>
 
