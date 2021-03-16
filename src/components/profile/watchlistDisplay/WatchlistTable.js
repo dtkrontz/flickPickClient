@@ -6,22 +6,6 @@ import {Table, Button} from 'reactstrap';
 // import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
 
 const WatchlistTable = (props) => {
-
-    const [watchlist, setWatchlist] = useState([]);
-
-        const fetchWatchlist = () => {
-            fetch(`http://localhost:3000/watchlist/view`, {
-                method: 'GET',
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'Authorization': props.token
-                })
-            }).then(res => res.json())
-            .then(json => {
-                setWatchlist(json)
-            });
-        }
-
         const deleteWatchlistItem = (watchlist) => {
             // console.log(watchlist);
             fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
@@ -34,14 +18,10 @@ const WatchlistTable = (props) => {
             .then(() => fetchWatchlist())
             // .then(props.fetchWatchlist)
         };
-
-        useEffect(()=> {
-            fetchWatchlist();
-        }, []);
-
+ 
         const Mapper = () => {
-            return watchlist.map((watchlist, index) => {
-                console.log(index);
+            return props.watchlist.map((watchlist, index) => {
+              console.log(index);
                 return(
                 <tr key={index}>
                     <th scope="row">{watchlist.id}</th>
