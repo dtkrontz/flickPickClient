@@ -32,7 +32,7 @@ const HomeComponent = (props) => {
         <div className='home'>
             <button onClick={(e) => signupHandler(e)}>Signup</button>
             <button onClick={(e) => loginHandler(e)}>Login</button>
-            {signup ? <Signup /> : null}
+            {signup ? <Signup updateToken={props.updateToken}/> : null}
             {login ? <LoginDisplay updateToken={props.updateToken}/> : null}
         <SearchComponent />
         </div>
