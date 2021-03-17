@@ -2,6 +2,7 @@
 
 import React, {useState} from 'react';
 import {Button} from 'reactstrap';
+import addIcon from '../../assets/addIcon.png';
 
 const WatchlistCreate = (props) => {
     // console.log(props.result);
@@ -54,7 +55,7 @@ const WatchlistCreate = (props) => {
 
     return(
         <div>
-            <Button onClick={(event) => handleSubmit(event)}>Add to watchlist</Button>
+            <Button onClick={(event) => handleSubmit(event)}><img src={addIcon} alt='Add to Watchlist' /></Button>
         </div>
     )
 };

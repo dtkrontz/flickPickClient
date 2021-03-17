@@ -53,7 +53,7 @@ const WatchlistTable = (props) => {
  
         const slides = props.watchlist.map((watchlist, index) => {
           return (
-                <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={index}>
+                <CarouselItem className='carouselItem' onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={index}>
                   <Card>
                     <CardImg top width="100%" src={watchlist.poster} alt={watchlist.title} />
                     <CardBody>

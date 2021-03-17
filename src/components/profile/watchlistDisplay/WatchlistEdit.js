@@ -4,6 +4,8 @@ import React, {useState} from 'react';
 import { Form, Label, Row, Col} from 'reactstrap';
 import Button from '@material-ui/core/Button';
 import './WatchlistDisplay.css';
+import saveIcon from '../../assets/saveIcon.png';
+import deleteIcon from '../../assets/deleteIcon.png';
 
 const WatchlistEdit = (props) => {
     console.log(props);
@@ -73,9 +75,11 @@ const WatchlistEdit = (props) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <Button color='primary' type='submit'>Save</Button>
-                        <Button size="small" color="primary" onClick={() => {deleteWatchlistItem(props.watchlist)}}>Trash</Button>
+                    <Col className='save'>
+                        <Button color='primary' type='submit'><img src={saveIcon} alt='save' /> </Button>
+                    </Col>
+                    <Col className='delete'>
+                        <Button size="small" color="primary" onClick={() => {deleteWatchlistItem(props.watchlist)}}><img src={deleteIcon} alt='delete' /></Button>
                     </Col>
                 </Row>
             </Form>
