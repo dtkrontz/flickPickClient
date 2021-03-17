@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import {Button} from 'reactstrap';
 import ProfileSearch from './ProfileSearch';
 import WatchlistTable from './watchlistDisplay/WatchlistTable';
+import './Profile.css';
 
 const Profile = (props) => {
     console.log(props);

@@ -1,3 +1,16 @@
+@font-face {
+  font-family: ourFont;
+  src: url();
+}
+
+body {
+  background-image: url(./components/assets/flickShadow2.png);
+  margin: auto;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .App {
   text-align: center;
 }
