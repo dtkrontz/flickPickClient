@@ -3,10 +3,10 @@
 
 import React, { useEffect, useState } from 'react';
 import {Button} from 'reactstrap';
-import '../home/Home.css';
 import Signup from './signup/Signup'
 import SearchComponent from '../Search.js';
 import LoginDisplay from './login/loginDisplay/LoginDisplay';
+
 
 
 const HomeComponent = (props) => {

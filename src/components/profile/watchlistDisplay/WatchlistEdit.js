@@ -1,8 +1,9 @@
 // will be called upon in the WatchlistTable to handle marking watched and recommend as "true".
 
 import React, {useState} from 'react';
-import { Form, Label} from 'reactstrap';
+import { Form, Label, Row, Col} from 'reactstrap';
 import Button from '@material-ui/core/Button';
+import './WatchlistDisplay.css';
 
 const WatchlistEdit = (props) => {
     console.log(props);
@@ -25,6 +26,19 @@ const WatchlistEdit = (props) => {
         // console.log(e);
         .then(() => props.fetchWatchlist())
     }
+
+    const deleteWatchlistItem = (watchlist) => {
+        // console.log(watchlist);
+        fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
+            method: 'DELETE',
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            })
+        })
+        .then(() => props.fetchWatchlist())
+        // .then(props.fetchWatchlist)
+    };
     
     const handleWatched = () => {
         editWatched ? setEditWatched(false) : setEditWatched(true);
@@ -45,14 +59,25 @@ const WatchlistEdit = (props) => {
     return(
         <div>
             <Form onSubmit={watchlistUpdate}>
-                <Label>
-                <p>Watched: <input type='checkbox' checked={editWatched} value={editWatched} onChange={(e) => handleWatched(e.target.value)} />
-                </p>
-                <p>
-                Recommend: <input type='checkbox' checked={editRecommend} value={editRecommend} onChange={(e) => handleRecommend(e.target.value)} />
-                </p>
-                </Label>
-                <Button color='primary' type='submit'>Save</Button>
+                <Row>
+                    <Col>
+                        <Label>
+                            <p>Watched: <input type='checkbox' checked={editWatched} value={editWatched} onChange={(e) => handleWatched(e.target.value)} />
+                            </p>
+                        </Label>
+                        <Label>
+                            <p>
+                            Recommend: <input type='checkbox' checked={editRecommend} value={editRecommend} onChange={(e) => handleRecommend(e.target.value)} />
+                            </p>
+                        </Label>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Button color='primary' type='submit'>Save</Button>
+                        <Button size="small" color="primary" onClick={() => {deleteWatchlistItem(props.watchlist)}}>Trash</Button>
+                    </Col>
+                </Row>
             </Form>
         </div>
     )
