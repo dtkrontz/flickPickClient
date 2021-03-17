@@ -1,5 +1,6 @@
 // display "GET" watchlist for a user, with watched and recommend and delete fields to "edit".
 
+
 import React, { useState } from 'react';
 import {
   Carousel,
@@ -10,6 +11,7 @@ import {
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
+import WatchlistEdit from './WatchlistEdit';
 
 const WatchlistTable = (props) => {
 
@@ -71,7 +73,6 @@ const WatchlistTable = (props) => {
               <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
               <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
             </Carousel>
-
     );
 };
 

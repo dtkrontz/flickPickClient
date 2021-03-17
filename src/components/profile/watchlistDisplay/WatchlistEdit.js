@@ -1,50 +1,59 @@
 // will be called upon in the WatchlistTable to handle marking watched and recommend as "true".
 
 import React, {useState} from 'react';
-import {Button, Form, Label} from 'reactstrap';
+import { Form, Label} from 'reactstrap';
+import Button from '@material-ui/core/Button';
 
 const WatchlistEdit = (props) => {
-
-    const [watchlist, setWatchlist] = useState([]);
-    const [watched, setWatched] = useState(props.fetch.watched);
-    const [recommend, setRecommend] = useState(props.fetch.recommend);
-
-    // const watchlistUpdate = (event, watchlist) => {
-    //     event.preventDefault();
-    //     fetch(`http://localhost:3000/watchlist/${props.watchlistToUpdate.id}`, {
-    //         method: 'PUT',
-    //         body: JSON.stringify({watchlist: {watched: watched, recommend: recommend}}),
-    //         headers: new Headers({
-    //             'Content-Type': 'application/json',
-    //             'Authorization': props.token
-    //         })
-    //     })
-    //     .then((res) => {
-    //         props.fetchWatchlist();
-    //         props.updateOff();
-    //     })
-    // }
-
-    const handleSubmit = (e) => {
-        // watchlistUpdate();
-        setWatched ? setWatched(false) : setWatched(true);
-        setRecommend ? setRecommend(false) : setRecommend(true);
+    console.log(props);
+    const [editWatched, setEditWatched] = useState(props.watchlist.watched);
+    const [editRecommend, setEditRecommend] = useState(props.watchlist.recommend);
+    
+    const watchlistUpdate = () => {
+        // event.preventDefault();
+        fetch(`http://localhost:3000/watchlist/${props.watchlist.id}`, {
+            method: 'PUT',
+            body: JSON.stringify({watchlist: {
+                watched: editWatched,
+                recommend: editRecommend
+            }}),
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            })
+        })
+        // console.log(e);
+        .then(() => props.fetchWatchlist())
     }
+    
+    const handleWatched = () => {
+        editWatched ? setEditWatched(false) : setEditWatched(true);
+    }
+    
+    const handleRecommend = () => {
+        editRecommend ? setEditRecommend(false) : setEditRecommend(true);
+    }
+    
+    console.log(editWatched, editRecommend);
+    // const handleSubmit = (e) => {
+    //     watchlistUpdate();
+    //     watched ? setWatched(false) : setWatched(true);
+    //     recommend ? setRecommend(false) : setRecommend(true);
+    //     console.log(watched, recommend);
+    // }
 
     return(
         <div>
-            <Form>
+            <Form onSubmit={watchlistUpdate}>
                 <Label>
-                <p>Watched: <input type='checkbox' value='Watched' onClick={(e) => handleSubmit(e)} />
+                <p>Watched: <input type='checkbox' checked={editWatched} value={editWatched} onChange={(e) => handleWatched(e.target.value)} />
+                </p>
+                <p>
+                Recommend: <input type='checkbox' checked={editRecommend} value={editRecommend} onChange={(e) => handleRecommend(e.target.value)} />
                 </p>
                 </Label>
-                <br />
-                <Label>
-                <p>Recommend: <input type='checkbox' value='Watched' onClick={(e) => handleSubmit(e)} />
-                </p>
-                </Label>
+                <Button color='primary' type='submit'>Save</Button>
             </Form>
-            <Button color='success' type='submit'>Add to Watchlist</Button>
         </div>
     )
 };
