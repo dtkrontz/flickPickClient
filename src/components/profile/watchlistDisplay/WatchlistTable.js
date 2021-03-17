@@ -1,11 +1,52 @@
 // display "GET" watchlist for a user, with watched and recommend and delete fields to "edit".
 
 import React, { useEffect, useState } from 'react';
-import {Table, Button} from 'reactstrap';
+//import {Table, Button} from 'reactstrap';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
+import styled from 'styled-components';
 
 // import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
 
+const useStyles = makeStyles({
+    card: {
+      maxWidth: 345,
+      maxHeight: 450,
+    },
+  });
+
+  const Row = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+`;
+
+const Column = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+`;
+
+const Wrapper = styled.div`
+    display: block;
+    margin: auto;
+    padding: 2em;
+`;
+
+
+
 const WatchlistTable = (props) => {
+
+    
+
         const deleteWatchlistItem = (watchlist) => {
             // console.log(watchlist);
             fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
@@ -20,29 +61,46 @@ const WatchlistTable = (props) => {
         };
  
         const Mapper = () => {
-            return props.watchlist.map((watchlist, index) => {
-            //   console.log(index);
-                return(
-                <tr key={index}>
-                    <th scope="row">{watchlist.id}</th>
-                    <td>{watchlist.title}</td>
-                    <td>{watchlist.rated}</td>
-                    <td>{watchlist.runtime}</td>
-                    <td>Watched</td>
-                    <td>Recommend</td>
-                    <td>Save</td>
-                    <td><Button color='danger' onClick={() => {deleteWatchlistItem(watchlist)}}>Remove from Watchlist</Button></td>
-                </tr>
+
+            const classes = useStyles();
+
+            return props.watchlist.map((watchlist, index) => (
+                <Column key={index}>
+                <Wrapper>
+                    <Card className={classes.card}>
+                        <CardActionArea>
+                            <CardMedia component="img" alt={watchlist.title} height="180"
+                            image={watchlist.poster}
+                            />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                            {watchlist.title}
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                            {watchlist.plot}
+                            </Typography>
+                        </CardContent>
+                        </CardActionArea>
+                         <CardActions>
+                         <Button size="small" color="primary"onClick={() => {deleteWatchlistItem(watchlist)}}>Remove from Watchlist
+                        </Button>
+                        <Button size="small" color="primary">
+                        Learn More
+                        </Button>
+                        </CardActions>
+                     </Card>
+                </Wrapper>
+            </Column>
                 )
-            })
+            )
         }
 
     return (
         <div>
-            <Table>
+            <Row>
                 {Mapper()}
 
-            </Table>
+            </Row>
         </div>
 
     );
@@ -70,3 +128,15 @@ Card/
 Wrapper/
 Column/
 */
+
+
+                // <tr key={index}>
+                //     <td><img src={watchlist.poster}/></td>
+                //     <td>{watchlist.title}</td>
+                //     <td>{watchlist.rated}</td>
+                //     <td>{watchlist.runtime}</td>
+                //     <td>Watched</td>
+                //     <td>Recommend</td>
+                //     <td>Save</td>
+                //     <td><Button color='danger' onClick={() => {deleteWatchlistItem(watchlist)}}>Remove from Watchlist</Button></td>
+                // </tr>
