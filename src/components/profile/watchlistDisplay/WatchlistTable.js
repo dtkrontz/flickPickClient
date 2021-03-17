@@ -12,6 +12,7 @@ import {
 } from 'reactstrap';
 
 import WatchlistEdit from './WatchlistEdit';
+import '../Profile.css';
 
 const WatchlistTable = (props) => {
 
@@ -37,18 +38,18 @@ const WatchlistTable = (props) => {
 
     
 
-        const deleteWatchlistItem = (watchlist) => {
-            // console.log(watchlist);
-            fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
-                method: 'DELETE',
-                headers: new Headers ({
-                    'Content-Type': 'application/json',
-                    'Authorization': props.token
-                })
-            })
-            .then(() => props.fetchWatchlist())
-            // .then(props.fetchWatchlist)
-        };
+        // const deleteWatchlistItem = (watchlist) => {
+        //     // console.log(watchlist);
+        //     fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
+        //         method: 'DELETE',
+        //         headers: new Headers ({
+        //             'Content-Type': 'application/json',
+        //             'Authorization': props.token
+        //         })
+        //     })
+        //     .then(() => props.fetchWatchlist())
+        //     // .then(props.fetchWatchlist)
+        // };
  
         const slides = props.watchlist.map((watchlist, index) => {
           return (
@@ -59,7 +60,7 @@ const WatchlistTable = (props) => {
                     <CardTitle tag="h5">{watchlist.title}</CardTitle>
                     <CardSubtitle tag="h6" className="mb-2 text-muted">Rated: {watchlist.rated}</CardSubtitle>
                     <CardText>{watchlist.plot}</CardText>
-                    <Button>Button</Button>
+                    <WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist}  />
                     </CardBody>
                 </Card>
               </CarouselItem>
