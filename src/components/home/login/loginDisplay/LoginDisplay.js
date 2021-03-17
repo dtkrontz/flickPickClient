@@ -11,7 +11,7 @@ const LoginDisplay = (props)=> {
 
      const handleSubmit = (event) => {
      event.preventDefault();
-     fetch('http://localhost:3000/user/signup',{
+     fetch('http://localhost:3000/user/login',{
           method: 'POST',
           body: JSON.stringify({user:{username: username, password: password }}),
           headers: new Headers({
@@ -31,17 +31,18 @@ const LoginDisplay = (props)=> {
           <div>
                <Modal isOpen={modal}  className='login'>
                     <ModalHeader>Login</ModalHeader>
-                    <p>test</p>
-                  <Form onSubmit={handleSubmit}>
-                       <Label> Username </Label>
-                       <input id='username' name= 'username' type= 'text' required minLength= "4" onChange={(e) => setUserName(e.target.value)} value={username} >   
+                  <Form className='form-inputs' onSubmit={handleSubmit}>
+                       <label> Username: </label>
+                       <input id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
                        </input>
                        <br/>
-                       <Label> Password</Label>
-                       <input id='password' name='password' type='password' required minLen-gth='5' onChange={(e) => setPassword(e.target.value)} value={password}>
+                       <label> Password:</label>
+                       <input id='password' name='password' type='password' placeholder =' Enter password' onChange={(e) => setPassword(e.target.value)} value={password}>
                        </input>
                        <br />
-                       <button onClick={handleSubmit}>Submit</button>
+                       <button className='form-input-btn' onClick={handleSubmit}>Submit</button>
+                       <br/>
+                       <span className='form-input-login'> Don't have an account? Sign up <a href="http://localhost:3000/user/signup">here</a></span>
                   </Form>
                </Modal>
           </div>
@@ -51,3 +52,9 @@ const LoginDisplay = (props)=> {
 
 export default LoginDisplay;
 // modal with input fields to login
+ 
+  //patterns to listen for:
+// const patterns = {
+//      username:/^[a-z\d]{4,10}$/i,// pattern means upper and lowercase accepted and must be 4-10
+//      password:/^[\w\W-]{5,10}/$, /*pattern means it accepts all alphanumerical enteries and @#%-*/ 
+// }

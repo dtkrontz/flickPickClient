@@ -1,6 +1,6 @@
 // modal to signup and be directed to the profile
 import React, {useState} from 'react';
-import {Modal, ModalHeader, Form, Label} from 'reactstrap';
+import {Modal, ModalHeader, Form, Label, InputGroupText, Alert} from 'reactstrap';
 import './Signup.css'
 
 const Signup = (props)=> {
@@ -12,20 +12,33 @@ const Signup = (props)=> {
 
      const handleSubmit = (event) => {
      event.preventDefault();
-     fetch('http://localhost:3000/user/login',{
-          method: 'POST',
-          body: JSON.stringify({user:{username: username, password: password }}),
-          headers: new Headers({
-               'Content-Type': 'application/json'
-          })
-     })
-     .then(response => response.json())
-     .then(data => {
-         console.log(data);
+     if(password.length<5){
+          alert('Password needs to be more than 5 charaters')
 
-          props.updateToken(data.token);
-     })
-     setModal(false);
+     }else if (username.length<4) {
+          alert('Username needs to be more than 4 charaters')
+       }  else if (password ===/^[a-z\d]{4,10}$/i){
+            alert('Username needs a number and a special charater')
+       } else{
+          fetch('http://localhost:3000/user/login',{
+               method: 'POST',
+               body: JSON.stringify({user:{username: username, password: password }}),
+               headers: new Headers({
+                    'Content-Type': 'application/json'
+               })
+          })
+          .then(response => response.json())
+          .then(data => {
+              console.log(data);
+     
+               props.updateToken(data.token);
+          })
+          setModal(false);
+     }
+
+     
+
+     
 
 }
     return(
@@ -34,15 +47,18 @@ const Signup = (props)=> {
          <ModalHeader>Signup</ModalHeader>
          
        <Form onSubmit={handleSubmit}>
-            <Label> Signup </Label>
-            <input id='username' name= 'username' type= 'text' required minLength= "4" onChange={(e) => setUserName(e.target.value)} value={username} >   
-            </input>
+            <Label> Username: </Label>
+            <input id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
+           </input>
             <br/>
-            <Label>Password</Label>
-            <input id='password' name='password' type='password' required minLength='5' onChange={(e) => setPassword(e.target.value)} value={password}>
+            <Label>Password:</Label>
+            <input id='password' name='password' type='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} value={password}>
             </input>
             <br />
-            <button onClick={handleSubmit}>Submit</button>
+            <button className ="form-input-btn" onClick={handleSubmit}>Sign up</button>
+            <br />
+
+            <span className='form-input-login'> Already have an account? Login <a href="http://localhost:3000/user/login"> here</a> </span>
        </Form>
     </Modal>
 </div>
@@ -51,4 +67,11 @@ const Signup = (props)=> {
 
 
 
+
 export default Signup;
+
+     
+
+
+
+
