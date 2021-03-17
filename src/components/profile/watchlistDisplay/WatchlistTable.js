@@ -2,81 +2,61 @@
 
 import React, { useState } from 'react';
 import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
+  // Carousel,
+  // CarouselItem,
+  // CarouselControl,
+  // CarouselIndicators,
   CarouselCaption, Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Row, Col
 } from 'reactstrap';
-
+import Carousel from "react-multi-carousel";
+  import "react-multi-carousel/lib/styles.css";
 import WatchlistEdit from './WatchlistEdit';
 import '../Profile.css';
 
 const WatchlistTable = (props) => {
 
-        const [activeIndex, setActiveIndex] = useState(0);
-        const [animating, setAnimating] = useState(false);
-      
-        const next = () => {
-          if (animating) return;
-          const nextIndex = activeIndex === props.watchlist.length - 1 ? 0 : activeIndex + 1;
-          setActiveIndex(nextIndex);
-        }
-      
-        const previous = () => {
-          if (animating) return;
-          const nextIndex = activeIndex === 0 ? props.watchlist.length - 1 : activeIndex - 1;
-          setActiveIndex(nextIndex);
-        }
-      
-        const goToIndex = (newIndex) => {
-          if (animating) return;
-          setActiveIndex(newIndex);
-        }
+  
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
 
-    
-
-        // const deleteWatchlistItem = (watchlist) => {
-        //     // console.log(watchlist);
-        //     fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
-        //         method: 'DELETE',
-        //         headers: new Headers ({
-        //             'Content-Type': 'application/json',
-        //             'Authorization': props.token
-        //         })
-        //     })
-        //     .then(() => props.fetchWatchlist())
-        //     // .then(props.fetchWatchlist)
-        // };
- 
         const slides = props.watchlist.map((watchlist, index) => {
           return (
-                <CarouselItem className="carousel-item" onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={index}>
-                  <Row>
-                    <Col sm="4">
-                  <Card>
-                    <CardImg top width="100%" src={watchlist.poster} alt={watchlist.title}/>
-                    <CardBody>
-                    <CardTitle tag="h5">{watchlist.title}</CardTitle>
-                    <CardSubtitle tag="h6" className="mb-2 text-muted">Rated: {watchlist.rated}</CardSubtitle>
-                    <CardText>{watchlist.plot}</CardText>
-                    <WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist}  />
-                    </CardBody>
-                </Card>
-                </Col>
-                </Row>
-              </CarouselItem>
+                  <div key={index}>
+                      <Card>
+                        <CardImg top width="100%" src={watchlist.poster} alt={watchlist.title}/>
+                        <CardBody>
+                        <CardTitle tag="h5">{watchlist.title}</CardTitle>
+                        <CardSubtitle tag="h6" className="mb-2 text-muted">Rated: {watchlist.rated}</CardSubtitle>
+                        <CardText>{watchlist.plot}</CardText>
+                        <WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist}  />
+                        </CardBody>
+                      </Card>
+                </div>
           )}
             )
 
     return (
-        <Carousel activeIndex={activeIndex} next={next} previous={previous} width= "200px" height= "400px">
-              <CarouselIndicators items={props.watchlist} activeIndex={activeIndex} onClickHandler={goToIndex} />
-              {slides}
-              <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-              <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-            </Carousel>
+      <Carousel responsive={responsive} width="50px" height="200px">
+      {slides}
+    </Carousel>
     );
 };
 

@@ -13,7 +13,8 @@ const HomeComponent = (props) => {
 
     const [signup, setSignup] = useState(false);
     const [login, setLogin] = useState(false);
-
+    
+   
     const signupHandler = () => {
         setSignup(true);
     }
@@ -34,8 +35,8 @@ const HomeComponent = (props) => {
                 <li onClick={() => signupHandler()}>Signup</li>
                 <li  onClick={() => loginHandler()}>Login</li>
             </ul>
-            <button onClick={(e) => signupHandler(e)}>Signup</button>
-            <button onClick={(e) => loginHandler(e)}>Login</button>
+            {/* <button onClick={(e) => signupHandler(e)}>Signup</button>
+            <button onClick={(e) => loginHandler(e)}>Login</button> */}
             {signup ? <Signup updateToken={props.updateToken} signup={setSignup}/> : null}
             {login ? <LoginDisplay updateToken={props.updateToken} login={setLogin}/> : null}
         <SearchComponent />
