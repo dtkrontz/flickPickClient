@@ -6,7 +6,7 @@ import ProfileSearch from './ProfileSearch';
 import WatchlistTable from './watchlistDisplay/WatchlistTable';
 
 const Profile = (props) => {
-
+    console.log(props);
     const [watchlist, setWatchlist] = useState([]);
 
     const fetchWatchlist = () => {

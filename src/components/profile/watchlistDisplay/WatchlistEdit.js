@@ -22,9 +22,7 @@ const WatchlistEdit = (props) => {
             })
         })
         // console.log(e);
-        .then(() => {
-            props.fetchWatchlist();
-        })
+        .then(() => props.fetchWatchlist())
     }
     
     const handleWatched = () => {

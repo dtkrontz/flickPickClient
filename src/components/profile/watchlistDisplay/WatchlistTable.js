@@ -28,7 +28,7 @@ const WatchlistTable = (props) => {
                     <td>{watchlist.title}</td>
                     <td>{watchlist.rated}</td>
                     <td>{watchlist.runtime}</td>
-                    <td><WatchlistEdit watchlist={watchlist} fetchWatchlist={props.fetchWatchlist} /></td>
+                    <td><WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist} /></td>
                     <td><Button color='danger' onClick={() => {deleteWatchlistItem(watchlist)}}>Trashcan</Button></td>
                 </tr>
                 )
