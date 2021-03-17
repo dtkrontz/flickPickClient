@@ -48,6 +48,7 @@ const WatchlistCreate = (props) => {
             // setWatched('');
             // setRecommend('');
             props.fetchWatchlist();
+            props.setModal(false);
         });
     };
 
