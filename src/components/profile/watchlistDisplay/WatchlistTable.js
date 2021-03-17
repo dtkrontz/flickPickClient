@@ -39,7 +39,7 @@ const WatchlistTable = (props) => {
 
         const slides = props.watchlist.map((watchlist, index) => {
           return (
-                  <div key={index}>
+                  <div key={index} infinite={true}>
                       <Card>
                         <CardImg top width="100%" src={watchlist.poster} alt={watchlist.title}/>
                         <CardBody>
@@ -54,7 +54,18 @@ const WatchlistTable = (props) => {
             )
 
     return (
-      <Carousel responsive={responsive} width="50px" height="200px">
+      <Carousel   swipeable={true}
+      draggable={false}
+      showDots={true}
+      responsive={responsive}
+      infinite={true}
+      autoPlaySpeed={1000}
+      keyBoardControl={true}
+      transitionDuration={500}
+      containerClass="carousel-container"
+      removeArrowOnDeviceType={["mobile"]}
+      dotListClass="custom-dot-list-style"
+      itemClass="carousel-item-padding-40-px">
       {slides}
     </Carousel>
     );
