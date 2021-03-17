@@ -2,19 +2,20 @@
 
 import React, {useState} from 'react';
 import {Button} from 'reactstrap';
+import addIcon from '../../assets/addIcon.png';
 
 const WatchlistCreate = (props) => {
-    console.log(props.result);
-    console.log(props);
+    // console.log(props.result);
+    // console.log(props);
 
-    const [title, setTitle] = useState(props.result.Title);
-    const [rated, setRated] = useState(props.result.Rated);
-    const [runtime, setRuntime] = useState(props.result.Runtime);
-    const [genre, setGenre] = useState(props.result.Genre);
-    const [plot, setPlot] = useState(props.result.Plot);
-    const [poster, setPoster] = useState(props.result.Poster);
-    const [watched, setWatched] = useState(props.result.Watched);
-    const [recommend, setRecommend] = useState(props.result.Recommend);
+    const [title, setTitle] = useState(props.result[0].Title);
+    const [rated, setRated] = useState(props.result[0].Rated);
+    const [runtime, setRuntime] = useState(props.result[0].Runtime);
+    const [genre, setGenre] = useState(props.result[0].Genre);
+    const [plot, setPlot] = useState(props.result[0].Plot);
+    const [poster, setPoster] = useState(props.result[0].Poster);
+    const [watched, setWatched] = useState(false);
+    const [recommend, setRecommend] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,7 +27,9 @@ const WatchlistCreate = (props) => {
                 runtime: runtime,
                 genre: genre,
                 plot: plot,
-                poster: poster
+                poster: poster,
+                watched: watched,
+                recommend: recommend
 
             }}),
             headers: new Headers ({
@@ -45,13 +48,14 @@ const WatchlistCreate = (props) => {
             // setPoster('');
             // setWatched('');
             // setRecommend('');
-            // props.fetchWatchlist();
+            props.fetchWatchlist();
+            props.setModal(false);
         });
     };
 
     return(
         <div>
-            <Button onClick={(event) => handleSubmit(event)}>Add to watchlist</Button>
+            <Button onClick={(event) => handleSubmit(event)}><img src={addIcon} alt='Add to Watchlist' /></Button>
         </div>
     )
 };

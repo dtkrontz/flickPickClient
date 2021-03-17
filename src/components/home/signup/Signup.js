@@ -36,16 +36,16 @@ const Signup = (props)=> {
           setModal(false);
      }
 
-     
+const handleModal = (event) => {
+     setModal(false);
+     props.signup(false);
+ }
 
-     
-
-}
     return(
     <div>
     <Modal isOpen={modal}  className='Signup'>
          <ModalHeader>Signup</ModalHeader>
-         
+         <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>
        <Form onSubmit={handleSubmit}>
             <Label> Username: </Label>
             <input id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
@@ -65,13 +65,4 @@ const Signup = (props)=> {
     )
 };   
 
-
-
-
 export default Signup;
-
-     
-
-
-
-

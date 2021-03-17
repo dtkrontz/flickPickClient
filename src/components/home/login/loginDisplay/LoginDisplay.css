@@ -7,7 +7,6 @@
 
 input:valid{
     border: 2px solid black;
-
 }
 */
 
@@ -51,5 +50,5 @@ input:valid{
         width: 80%;
         text-align: center;
       }
-      
- 
+}
+

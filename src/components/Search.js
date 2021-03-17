@@ -3,6 +3,8 @@
 import React, {useState, useEffect} from 'react';
 import {Button} from 'reactstrap';
 import DisplayResult from './DisplayResult';
+import './home/Home.css';
+import searchIcon from './assets/searchIcon.png';
 
 const SearchComponent = (props) => {
 
@@ -23,7 +25,7 @@ const SearchComponent = (props) => {
         });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = () => {
         setResult([]);
         searchFetch();
     }
@@ -36,11 +38,15 @@ const SearchComponent = (props) => {
 
     return (
         <div className='home'>
-            <input type="text" placeholder="movie title" onChange={(e) => setTitle(e.target.value)} />
-            <Button onClick={(event) => handleSubmit(event)}>Search</Button>
-            {display ? <DisplayResult result= {result} handleSubmit={handleSubmit}/> : null}
+            <input type="text" placeholder="Movie Title" onChange={(e) => setTitle(e.target.value)} />
+            <img className='searchIcon' src={searchIcon} alt='search' onClick={handleSubmit} />
+            {/* <Button onClick={(event) => handleSubmit(event)}>Search</Button> */}
+            {display ? <DisplayResult result= {result} handleSubmit={handleSubmit} searchFetch={searchFetch} setDisplay={setDisplay} /> : null}
         </div>
     )
 };
 
 export default SearchComponent;
+
+
+

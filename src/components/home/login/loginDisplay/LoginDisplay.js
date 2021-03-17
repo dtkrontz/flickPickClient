@@ -25,13 +25,20 @@ const LoginDisplay = (props)=> {
           props.updateToken(data.token);
      })
      setModal(false);
-
  }
+
+ const handleModal = (event) => {
+     setModal(false);
+     props.login(false);
+ }
+
      return (
           <div>
                <Modal isOpen={modal}  className='login'>
                     <ModalHeader>Login</ModalHeader>
-                  <Form className='form-inputs' onSubmit={handleSubmit}>
+                  <Form className='form-inputs' onSubmit={handleSubmit}>                  
+                    <Form onSubmit={handleSubmit}>
+                      <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>
                        <label> Username: </label>
                        <input id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
                        </input>

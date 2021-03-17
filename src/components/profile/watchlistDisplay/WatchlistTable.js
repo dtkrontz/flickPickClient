@@ -1,53 +1,116 @@
 // display "GET" watchlist for a user, with watched and recommend and delete fields to "edit".
 
-import React, { useEffect, useState } from 'react';
-import {Table} from 'reactstrap';
+import React, { useState } from 'react';
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption, Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button, Row, Col
+} from 'reactstrap';
 
-// import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
-// import WatchlistDelete from './profile/watchlistDisplay/WatchlistDelete';
+import WatchlistEdit from './WatchlistEdit';
+import '../Profile.css';
 
 const WatchlistTable = (props) => {
 
-    const [watchlist, setWatchlist] = useState([]);
-
-        const fetchWatchlist = () => {
-            fetch(`http://localhost:3000/watchlist/view`, {
-                method: 'GET',
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'Authorization': props.token
-                })
-            }).then(res => res.json())
-            .then(json => {
-                setWatchlist(json)
-            });
+        const [activeIndex, setActiveIndex] = useState(0);
+        const [animating, setAnimating] = useState(false);
+      
+        const next = () => {
+          if (animating) return;
+          const nextIndex = activeIndex === props.watchlist.length - 1 ? 0 : activeIndex + 1;
+          setActiveIndex(nextIndex);
+        }
+      
+        const previous = () => {
+          if (animating) return;
+          const nextIndex = activeIndex === 0 ? props.watchlist.length - 1 : activeIndex - 1;
+          setActiveIndex(nextIndex);
+        }
+      
+        const goToIndex = (newIndex) => {
+          if (animating) return;
+          setActiveIndex(newIndex);
         }
 
-        useEffect(()=> {
-            fetchWatchlist();
-        }, []);
+    
+
+        // const deleteWatchlistItem = (watchlist) => {
+        //     // console.log(watchlist);
+        //     fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
+        //         method: 'DELETE',
+        //         headers: new Headers ({
+        //             'Content-Type': 'application/json',
+        //             'Authorization': props.token
+        //         })
+        //     })
+        //     .then(() => props.fetchWatchlist())
+        //     // .then(props.fetchWatchlist)
+        // };
+ 
+        const slides = props.watchlist.map((watchlist, index) => {
+          return (
+                <CarouselItem className="carousel-item" onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={index}>
+                  <Row>
+                    <Col sm="4">
+                  <Card>
+                    <CardImg top width="100%" src={watchlist.poster} alt={watchlist.title}/>
+                    <CardBody>
+                    <CardTitle tag="h5">{watchlist.title}</CardTitle>
+                    <CardSubtitle tag="h6" className="mb-2 text-muted">Rated: {watchlist.rated}</CardSubtitle>
+                    <CardText>{watchlist.plot}</CardText>
+                    <WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist}  />
+                    </CardBody>
+                </Card>
+                </Col>
+                </Row>
+              </CarouselItem>
+          )}
+            )
 
     return (
-        <div>
-            {
-                watchlist.map((watchlist, index) => {
-                    return(
-                        <Table>
-                            <tr key={index}>
-                                <th scope="row">{watchlist.id}</th>
-                                <td>{watchlist.title}</td>
-                                <td>{watchlist.rated}</td>
-                                <td>{watchlist.runtime}</td>
-                            </tr>
-                        
-                        </Table>
-                    )
-                })
-            }
-
-        </div>
-
+        <Carousel activeIndex={activeIndex} next={next} previous={previous} width= "200px" height= "400px">
+              <CarouselIndicators items={props.watchlist} activeIndex={activeIndex} onClickHandler={goToIndex} />
+              {slides}
+              <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+              <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+            </Carousel>
     );
 };
 
 export default WatchlistTable;
+
+// make a form on the end of the map (watchlist item row) the form will have the save img or delete buttons (small to fit things)
+
+/*
+Map => 
+Column key
+Wrapper
+Card
+CardActionArea
+CardMedia/
+Card Content
+Typography
+Card Content/
+CardActionArea/
+CardActions
+edit/delete things
+CardActions/
+Card/
+Wrapper/
+Column/
+*/
+
+
+                // <tr key={index}>
+                //     <td><img src={watchlist.poster}/></td>
+                //     <td>{watchlist.title}</td>
+                //     <td>{watchlist.rated}</td>
+                //     <td>{watchlist.runtime}</td>
+                //     <td>Watched</td>
+                //     <td>Recommend</td>
+                //     <td>Save</td>
+                //     <td><Button color='danger' onClick={() => {deleteWatchlistItem(watchlist)}}>Remove from Watchlist</Button></td>
+                // </tr>

@@ -2,8 +2,6 @@
 
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading} from 'reactstrap';
-import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
-import WatchlistDelete from './profile/watchlistDisplay/WatchlistDelete';
 
 const DisplayResult = (props) => {
     console.log(props);
@@ -11,11 +9,12 @@ const DisplayResult = (props) => {
 
     const handleModal = (event) => {
         setModal(false);
+        props.setDisplay(false);
     }
 
     useEffect (() => {
         setModal(true);
-    }, [props.handleSubmit]);
+    }, [props.searchFetch]);
 
     return (
         <div className='modal'>
@@ -37,11 +36,6 @@ const DisplayResult = (props) => {
                                 <ListGroupItem>{r.Genre}</ListGroupItem>
                                 <ListGroupItem>{r.Plot}</ListGroupItem>
                             </ListGroup>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                        <WatchlistEdit />
                         </Col>
                     </Row>
                 </ModalBody>

@@ -3,6 +3,8 @@
 import React, {useState, useEffect} from 'react';
 import {Button} from 'reactstrap';
 import WatchlistDisplay from './watchlistDisplay/WatchlistDisplay';
+import './Profile.css';
+import searchIcon from '../assets/searchIcon.png';
 
 const ProfileSearch = (props) => {
 
@@ -24,21 +26,24 @@ const ProfileSearch = (props) => {
     };
 
     const handleSubmit = (event) => {
+        setDisplay(false);
         setResult([]);
         searchFetch();
     }
 
+    // Do we need this?
     useEffect (() => {
         setDisplay(false);
     }, []);
 
-    console.log(result);
+    // console.log(result);
 
     return (
         <div className='home'>
             <input type="text" placeholder="movie title" onChange={(e) => setTitle(e.target.value)} />
-            <Button onClick={(event) => handleSubmit(event)}>Search</Button>
-            {display ? <WatchlistDisplay result= {result} handleSubmit={handleSubmit} token={props.token}/> : null}
+            <img className='searchIcon' src={searchIcon} alt='search' onClick={(event) => handleSubmit(event)} />
+            {/* <Button onClick={(event) => handleSubmit(event)}><img src={searchIcon} alt='search' /></Button> */}
+            {display ? <WatchlistDisplay result= {result} handleSubmit={handleSubmit} token={props.token} fetchWatchlist={props.fetchWatchlist}/> : null}
         </div>
     )
 };
