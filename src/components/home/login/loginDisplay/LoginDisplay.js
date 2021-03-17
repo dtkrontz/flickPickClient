@@ -37,7 +37,6 @@ const LoginDisplay = (props)=> {
                <Modal isOpen={modal}  className='login'>
                     <ModalHeader>Login</ModalHeader>
                   <Form className='form-inputs' onSubmit={handleSubmit}>                  
-                    <Form onSubmit={handleSubmit}>
                       <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>
                        <label> Username: </label>
                        <input id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
@@ -53,7 +52,6 @@ const LoginDisplay = (props)=> {
                   </Form>
                </Modal>
           </div>
-
 )
 }
 

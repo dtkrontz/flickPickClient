@@ -35,6 +35,7 @@ const Signup = (props)=> {
           })
           setModal(false);
      }
+     };
 
 const handleModal = (event) => {
      setModal(false);
@@ -63,6 +64,6 @@ const handleModal = (event) => {
     </Modal>
 </div>
     )
-};   
+}
 
 export default Signup;
