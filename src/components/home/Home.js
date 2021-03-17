@@ -13,7 +13,8 @@ const HomeComponent = (props) => {
 
     const [signup, setSignup] = useState(false);
     const [login, setLogin] = useState(false);
-
+    
+   
     const signupHandler = () => {
         setSignup(true);
     }
