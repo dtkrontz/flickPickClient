@@ -1,6 +1,5 @@
 // display "GET" watchlist for a user, with watched and recommend and delete fields to "edit".
 
-
 import React, { useState } from 'react';
 import {
   Carousel,
@@ -8,7 +7,7 @@ import {
   CarouselControl,
   CarouselIndicators,
   CarouselCaption, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  CardTitle, CardSubtitle, Button, Row, Col
 } from 'reactstrap';
 
 import WatchlistEdit from './WatchlistEdit';
@@ -53,9 +52,11 @@ const WatchlistTable = (props) => {
  
         const slides = props.watchlist.map((watchlist, index) => {
           return (
-                <CarouselItem className='carouselItem' onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={index}>
+                <CarouselItem className="carousel-item" onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={index}>
+                  <Row>
+                    <Col sm="4">
                   <Card>
-                    <CardImg top width="100%" src={watchlist.poster} alt={watchlist.title} />
+                    <CardImg top width="100%" src={watchlist.poster} alt={watchlist.title}/>
                     <CardBody>
                     <CardTitle tag="h5">{watchlist.title}</CardTitle>
                     <CardSubtitle tag="h6" className="mb-2 text-muted">Rated: {watchlist.rated}</CardSubtitle>
@@ -63,12 +64,14 @@ const WatchlistTable = (props) => {
                     <WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist}  />
                     </CardBody>
                 </Card>
+                </Col>
+                </Row>
               </CarouselItem>
           )}
             )
 
     return (
-        <Carousel activeIndex={activeIndex} next={next} previous={previous} >
+        <Carousel activeIndex={activeIndex} next={next} previous={previous} width= "200px" height= "400px">
               <CarouselIndicators items={props.watchlist} activeIndex={activeIndex} onClickHandler={goToIndex} />
               {slides}
               <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />

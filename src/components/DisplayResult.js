@@ -3,8 +3,6 @@
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading} from 'reactstrap';
 
-
-
 const DisplayResult = (props) => {
     console.log(props);
     const [modal, setModal] = useState(true);
