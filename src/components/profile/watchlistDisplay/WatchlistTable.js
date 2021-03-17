@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 
 import styled from 'styled-components';
 
-// import WatchlistEdit from './profile/watchlistDisplay/WatchlistEdit';
+import WatchlistEdit from './WatchlistEdit';
 
 const useStyles = makeStyles({
     card: {
@@ -61,7 +61,9 @@ const WatchlistTable = (props) => {
         };
  
         const Mapper = () => {
-
+            //   console.log(index);
+//                     <td><WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist} /></td>
+//                     <td><Button color='danger' onClick={() => {deleteWatchlistItem(watchlist)}}>Trashcan</Button></td>
             const classes = useStyles();
 
             return props.watchlist.map((watchlist, index) => (
@@ -99,7 +101,6 @@ const WatchlistTable = (props) => {
         <div>
             <Row>
                 {Mapper()}
-
             </Row>
         </div>
 
