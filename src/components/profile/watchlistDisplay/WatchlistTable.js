@@ -17,8 +17,8 @@ import WatchlistEdit from './WatchlistEdit';
 
 const useStyles = makeStyles({
     card: {
-      maxWidth: 345,
-      maxHeight: 450,
+      minWidth: 300,
+      minHeight: 300,
     },
   });
 
@@ -84,11 +84,8 @@ const WatchlistTable = (props) => {
                         </CardContent>
                         </CardActionArea>
                          <CardActions>
-                         <Button size="small" color="primary"onClick={() => {deleteWatchlistItem(watchlist)}}>Remove from Watchlist
-                        </Button>
-                        <Button size="small" color="primary">
-                        Learn More
-                        </Button>
+                         <Button size="small" color="primary" onClick={() => {deleteWatchlistItem(watchlist)}}>Trash</Button>
+                         <WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist} />
                         </CardActions>
                      </Card>
                 </Wrapper>
