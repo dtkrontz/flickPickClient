@@ -3,6 +3,7 @@
 import React, {useState, useEffect} from 'react';
 import {Button} from 'reactstrap';
 import DisplayResult from './DisplayResult';
+import './home/Home.css';
 
 const SearchComponent = (props) => {
 
@@ -44,3 +45,6 @@ const SearchComponent = (props) => {
 };
 
 export default SearchComponent;
+
+
+

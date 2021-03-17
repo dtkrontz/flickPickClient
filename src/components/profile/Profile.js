@@ -5,6 +5,7 @@ import {Button} from 'reactstrap';
 import ProfileSearch from './ProfileSearch';
 import WatchlistTable from './watchlistDisplay/WatchlistTable';
 
+
 const Profile = (props) => {
     console.log(props);
     const [watchlist, setWatchlist] = useState([]);
@@ -30,7 +31,6 @@ const Profile = (props) => {
     
     return (
         <div className='home'>
-            <p>Username:</p>
             <Button onClick={props.clearToken}>Logout</Button>
             <ProfileSearch token={props.token} fetchWatchlist={fetchWatchlist} />
             <WatchlistTable watchlist={watchlist} fetchWatchlist={fetchWatchlist} token={props.token} />

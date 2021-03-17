@@ -1,7 +1,26 @@
+@keyframes move {
+    from {background-image: url(../assets/flick2copy.gif);}
+    to {background-image: url(../assets/flickPick2.png)}
+    }
+
 body {
     /* background-image: url(../assets/flick2copy.gif); */
+    animation: move 5s infinite;
+    animation-iteration-count: 1;
     margin: auto;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+h1 {
+    font-family: abril-titling-condensed, serif;
+    font-weight: 800;
+    font-style: italic;
+    position: absolute;
+    padding-top: 30vh;
+    font-size: 100px;
+    text-align: center;
+    width: 100%;
+
 }

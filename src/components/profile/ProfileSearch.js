@@ -3,6 +3,7 @@
 import React, {useState, useEffect} from 'react';
 import {Button} from 'reactstrap';
 import WatchlistDisplay from './watchlistDisplay/WatchlistDisplay';
+import './Profile.css';
 
 const ProfileSearch = (props) => {
 

@@ -57,6 +57,3 @@ const handleModal = (event) => {
 
 
 export default Signup;
-
-
-const usernameValidation = /(?=.{8,20}$)[a-zA-Z][0-9][!@#$%^&*()_+=]/

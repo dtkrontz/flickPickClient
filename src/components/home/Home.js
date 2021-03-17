@@ -3,10 +3,10 @@
 
 import React, { useEffect, useState } from 'react';
 import {Button} from 'reactstrap';
-import '../home/Home.css';
 import Signup from './signup/Signup'
 import SearchComponent from '../Search.js';
 import LoginDisplay from './login/loginDisplay/LoginDisplay';
+
 
 
 const HomeComponent = (props) => {
@@ -35,6 +35,7 @@ const HomeComponent = (props) => {
             {signup ? <Signup updateToken={props.updateToken} signup={setSignup}/> : null}
             {login ? <LoginDisplay updateToken={props.updateToken} login={setLogin}/> : null}
         <SearchComponent />
+        <h1 className='homeTitle'>Flick Pick</h1>
         </div>
     )
 };

@@ -1,106 +1,79 @@
 // display "GET" watchlist for a user, with watched and recommend and delete fields to "edit".
 
-import React, { useEffect, useState } from 'react';
-//import {Table, Button} from 'reactstrap';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption, Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 import WatchlistEdit from './WatchlistEdit';
-
-const useStyles = makeStyles({
-    card: {
-      minWidth: 300,
-      minHeight: 300,
-    },
-  });
-
-  const Row = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-`;
-
-const Column = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-`;
-
-const Wrapper = styled.div`
-    display: block;
-    margin: auto;
-    padding: 2em;
-`;
-
-
+import '../Profile.css';
 
 const WatchlistTable = (props) => {
 
-    
-
-        const deleteWatchlistItem = (watchlist) => {
-            // console.log(watchlist);
-            fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
-                method: 'DELETE',
-                headers: new Headers ({
-                    'Content-Type': 'application/json',
-                    'Authorization': props.token
-                })
-            })
-            .then(() => props.fetchWatchlist())
-            // .then(props.fetchWatchlist)
-        };
- 
-        const Mapper = () => {
-            //   console.log(index);
-//                     <td><WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist} /></td>
-//                     <td><Button color='danger' onClick={() => {deleteWatchlistItem(watchlist)}}>Trashcan</Button></td>
-            const classes = useStyles();
-
-            return props.watchlist.map((watchlist, index) => (
-                <Column key={index}>
-                <Wrapper>
-                    <Card className={classes.card}>
-                        <CardActionArea>
-                            <CardMedia component="img" alt={watchlist.title} height="180"
-                            image={watchlist.poster}
-                            />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                            {watchlist.title}
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                            {watchlist.plot}
-                            </Typography>
-                        </CardContent>
-                        </CardActionArea>
-                         <CardActions>
-                         <Button size="small" color="primary" onClick={() => {deleteWatchlistItem(watchlist)}}>Trash</Button>
-                         <WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist} />
-                        </CardActions>
-                     </Card>
-                </Wrapper>
-            </Column>
-                )
-            )
+        const [activeIndex, setActiveIndex] = useState(0);
+        const [animating, setAnimating] = useState(false);
+      
+        const next = () => {
+          if (animating) return;
+          const nextIndex = activeIndex === props.watchlist.length - 1 ? 0 : activeIndex + 1;
+          setActiveIndex(nextIndex);
+        }
+      
+        const previous = () => {
+          if (animating) return;
+          const nextIndex = activeIndex === 0 ? props.watchlist.length - 1 : activeIndex - 1;
+          setActiveIndex(nextIndex);
+        }
+      
+        const goToIndex = (newIndex) => {
+          if (animating) return;
+          setActiveIndex(newIndex);
         }
 
-    return (
-        <div>
-            <Row>
-                {Mapper()}
-            </Row>
-        </div>
+    
 
+        // const deleteWatchlistItem = (watchlist) => {
+        //     // console.log(watchlist);
+        //     fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
+        //         method: 'DELETE',
+        //         headers: new Headers ({
+        //             'Content-Type': 'application/json',
+        //             'Authorization': props.token
+        //         })
+        //     })
+        //     .then(() => props.fetchWatchlist())
+        //     // .then(props.fetchWatchlist)
+        // };
+ 
+        const slides = props.watchlist.map((watchlist, index) => {
+          return (
+                <CarouselItem onExiting={() => setAnimating(true)} onExited={() => setAnimating(false)} key={index}>
+                  <Card>
+                    <CardImg top width="100%" src={watchlist.poster} alt={watchlist.title} />
+                    <CardBody>
+                    <CardTitle tag="h5">{watchlist.title}</CardTitle>
+                    <CardSubtitle tag="h6" className="mb-2 text-muted">Rated: {watchlist.rated}</CardSubtitle>
+                    <CardText>{watchlist.plot}</CardText>
+                    <WatchlistEdit token={props.token} watchlist={watchlist} fetchWatchlist={props.fetchWatchlist}  />
+                    </CardBody>
+                </Card>
+              </CarouselItem>
+          )}
+            )
+
+    return (
+        <Carousel activeIndex={activeIndex} next={next} previous={previous} >
+              <CarouselIndicators items={props.watchlist} activeIndex={activeIndex} onClickHandler={goToIndex} />
+              {slides}
+              <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+              <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+            </Carousel>
     );
 };
 
