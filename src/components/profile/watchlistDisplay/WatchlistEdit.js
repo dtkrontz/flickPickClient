@@ -1,7 +1,8 @@
 // will be called upon in the WatchlistTable to handle marking watched and recommend as "true".
 
 import React, {useState} from 'react';
-import {Button, Form, Label} from 'reactstrap';
+import { Form, Label} from 'reactstrap';
+import Button from '@material-ui/core/Button';
 
 const WatchlistEdit = (props) => {
     console.log(props);
@@ -51,7 +52,7 @@ const WatchlistEdit = (props) => {
                 Recommend: <input type='checkbox' checked={editRecommend} value={editRecommend} onChange={(e) => handleRecommend(e.target.value)} />
                 </p>
                 </Label>
-                <Button color='success' type='submit'>Save</Button>
+                <Button color='primary' type='submit'>Save</Button>
             </Form>
         </div>
     )
