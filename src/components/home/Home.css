@@ -1,6 +1,6 @@
 @keyframes move {
     from {background-image: url(../assets/flick2copy.gif);}
-    to {background-image: url(../assets/flickShadow2.png)}
+    to {background-image: url(../assets/flickPick2.png)}
     }
 
 body {
@@ -14,6 +14,9 @@ body {
 }
 
 h1 {
+    font-family: abril-titling-condensed, serif;
+    font-weight: 800;
+    font-style: italic;
     position: absolute;
     padding-top: 30vh;
     font-size: 100px;
