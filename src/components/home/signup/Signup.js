@@ -17,7 +17,8 @@ const Signup = (props)=> {
 
      }else if (username.length<4) {
           alert('Username needs to be more than 4 charaters')
-       }  else if (password ===/^[a-z\d]{4,10}$/i){
+          
+       }  else if (username ===/^[a-z\d]{4,10}$/i){
             alert('Username needs a number and a special charater')
        } else{
           fetch('http://localhost:3000/user/login',{
