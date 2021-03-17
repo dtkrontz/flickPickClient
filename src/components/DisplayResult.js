@@ -3,18 +3,18 @@
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading} from 'reactstrap';
 
-
 const DisplayResult = (props) => {
     console.log(props);
     const [modal, setModal] = useState(true);
 
     const handleModal = (event) => {
         setModal(false);
+        props.setDisplay(false);
     }
 
     useEffect (() => {
         setModal(true);
-    }, [props.handleSubmit]);
+    }, [props.searchFetch]);
 
     return (
         <div className='modal'>
