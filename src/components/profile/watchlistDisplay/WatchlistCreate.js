@@ -1,7 +1,7 @@
 // responsible for sending the POST request to create a watchlist row in the server
 
 import React, {useState} from 'react';
-import {Button} from 'reactstrap';
+import {Button, Row, Col} from 'reactstrap';
 import addIcon from '../../assets/addIcon.png';
 
 const WatchlistCreate = (props) => {
@@ -55,7 +55,14 @@ const WatchlistCreate = (props) => {
 
     return(
         <div>
-            <Button onClick={(event) => handleSubmit(event)}><img src={addIcon} alt='Add to Watchlist' /></Button>
+            <Row>
+                <Col>
+                <Button onClick={(event) => handleSubmit(event)}><img src={addIcon} alt='Add to Watchlist' /></Button>
+                </Col>
+                <Col>
+                <Button onClick={props.handleModal}>X</Button>
+                </Col>
+            </Row>
         </div>
     )
 };

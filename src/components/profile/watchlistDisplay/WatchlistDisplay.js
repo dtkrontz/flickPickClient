@@ -8,7 +8,7 @@ const WatchlistDisplay = (props) => {
     // console.log(props);
     const [modal, setModal] = useState(true);
 
-    const handleModal = (event) => {
+    const handleModal = () => {
         setModal(false);
     }
 
@@ -22,7 +22,7 @@ const WatchlistDisplay = (props) => {
                 props.result.map(r => {
                     return (
             <Modal isOpen={modal} contentClassName='customModal'>
-                <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>
+                {/* <ModalHeader><button onClick={handleModal}>X</button></ModalHeader> */}
                 <ModalBody>
                     <Row>
                         <Col>
@@ -40,7 +40,7 @@ const WatchlistDisplay = (props) => {
                     </Row>
                     <Row>
                         <Col>
-                        <WatchlistCreate result={props.result} token={props.token} fetchWatchlist={props.fetchWatchlist} setModal={setModal}/>
+                        <WatchlistCreate result={props.result} token={props.token} fetchWatchlist={props.fetchWatchlist} handleModal={handleModal}/>
                         </Col>
                     </Row>
                 </ModalBody>
