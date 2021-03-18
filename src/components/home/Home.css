@@ -1,12 +1,12 @@
-@keyframes move {
+/* @keyframes move {
     from {background-image: url(../assets/flick2copy.gif);}
     to {background-image: url(../assets/flickPick2.png)}
-    }
+    } */
 
 body {
-    /* background-image: url(../assets/flick2copy.gif); */
-    animation: move 5s infinite;
-    animation-iteration-count: 1;
+    background-image: url(../assets/flickShadow2.png);
+    /* animation: move 5s infinite;
+    animation-iteration-count: 1; */
     margin: auto;
     height: 100vh;
     background-repeat: no-repeat;

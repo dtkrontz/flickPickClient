@@ -10,32 +10,33 @@ const Signup = (props)=> {
      const [password,setPassword] = useState('');
      const [modal, setModal] = useState(true);
 
+     const regEx = new RegExp (/[a-z]{1,10}[0-9]{1,10}/i);
+
      const handleSubmit = (event) => {
      event.preventDefault();
      if(password.length<5){
-          alert('Password needs to be more than 5 charaters')
+          alert('Password needs to be more than 5 characters')
 
-     }else if (username.length<4) {
-          alert('Username needs to be more than 4 charaters')
+     } else if (username.length<4) {
+          alert('Username needs to be more than 4 characters')
 
-       }  else if (username !==/^[a-z\d]{4,10}$/i){
-            alert('Username needs a number')
+       } else if (regEx.test(username)){
+            fetch('http://localhost:3000/user/register',{
+                 method: 'POST',
+                 body: JSON.stringify({user:{username: username, password: password }}),
+                 headers: new Headers({
+                      'Content-Type': 'application/json'
+                 })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+       
+                 props.updateToken(data.token);
+            })
+            setModal(false);
        } else {
-          fetch('http://localhost:3000/user/register',{
-               method: 'POST',
-               body: JSON.stringify({user:{username: username, password: password }}),
-               headers: new Headers({
-                    'Content-Type': 'application/json'
-               })
-          })
-          .then(response => response.json())
-          .then(data => {
-              console.log(data);
-     
-               props.updateToken(data.token);
-          })
-          setModal(false);
-    
+          alert('Username needs a number')
         } };
 
 const handleModal = (event) => {
