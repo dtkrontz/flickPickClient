@@ -1,9 +1,11 @@
-body {
+.profile {
     background-image: url(../assets/flickPick2.png);
     margin: auto;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    text-align: left;
+    margin: 10px;
 }
 
 .searchIcon{
@@ -12,7 +14,7 @@ body {
 }
 
 
-.user li {
+.userHome li {
     display: inline;
     margin: 10px;
     font-family: abril-titling-condensed, serif;
@@ -27,8 +29,12 @@ body {
 }
 
 .carouselDiv {
-    max-width: 500px;
+    max-width: 40vw;
     margin: auto;
+    /* position: absolute;
+    top: 27.5vh;
+    left: 27.5vh;
+    transform: translate(-27.5vh, -27.5vh); */
 }
 
 .card {
