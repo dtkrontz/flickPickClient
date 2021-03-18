@@ -3,6 +3,8 @@
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading, Button} from 'reactstrap';
 
+import './DisplayResult.css';
+
 const DisplayResult = (props) => {
     console.log(props);
     const [modal, setModal] = useState(true);
@@ -23,7 +25,7 @@ const DisplayResult = (props) => {
                     return (
             <Modal isOpen={modal} contentClassName='customModal'>
                 {/* <ModalHeader><button onClick={handleModal}>X</button></ModalHeader> */}
-                <ModalBody>
+                <ModalBody className="searchModal">
                     <Row>
                         <Col>
                             <img src={r.Poster} />
