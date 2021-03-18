@@ -40,7 +40,7 @@ const HomeComponent = (props) => {
             {signup ? <Signup updateToken={props.updateToken} signup={setSignup}/> : null}
             {login ? <LoginDisplay updateToken={props.updateToken} login={setLogin}/> : null}
         <SearchComponent />
-        <h1 className='homeTitle'>Flick Pick</h1>
+        {/* <h1 className='homeTitle'>Flick Pick</h1> */}
         </div>
     )
 };
