@@ -3,12 +3,12 @@
 import React, {useState} from 'react';
 import { Form, Label, Row, Col} from 'reactstrap';
 import Button from '@material-ui/core/Button';
-import './WatchlistDisplay.css';
 import saveIcon from '../../assets/saveIcon.png';
 import deleteIcon from '../../assets/deleteIcon.png';
 import APIURL from '../../../helpers/environment';
 
 
+import './WatchlistDisplay.css';
 import '../Profile.css';
 
 const WatchlistEdit = (props) => {
