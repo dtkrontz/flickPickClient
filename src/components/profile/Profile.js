@@ -31,7 +31,10 @@ const Profile = (props) => {
     
     return (
         <div className='home'>
-            <Button onClick={props.clearToken}>Logout</Button>
+            <ul className='user'>
+                <li onClick={props.clearToken} >Logout</li>
+            </ul>
+            {/* <Button onClick={props.clearToken}>Logout</Button> */}
             <ProfileSearch token={props.token} fetchWatchlist={fetchWatchlist} />
             <WatchlistTable watchlist={watchlist} fetchWatchlist={fetchWatchlist} token={props.token} />
         </div>

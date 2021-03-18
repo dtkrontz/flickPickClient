@@ -36,23 +36,30 @@ const LoginDisplay = (props)=> {
           <div>
                <Modal isOpen={modal}  className='login'>
                     <ModalHeader>Login</ModalHeader>
-                    <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>                  
-                    <Form onSubmit={handleSubmit}>
-                       <Label> Username </Label>
-                       <input id='username' name= 'username' type= 'text' required minLength= "4" onChange={(e) => setUserName(e.target.value)} value={username} >   
+                  <Form className='form-inputs' onSubmit={handleSubmit}>                  
+                      <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>
+                       <label> Username: </label>
+                       <input id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
                        </input>
                        <br/>
-                       <Label> Password</Label>
-                       <input id='password' name='password' type='password' required minLen-gth='5' onChange={(e) => setPassword(e.target.value)} value={password}>
+                       <label> Password:</label>
+                       <input id='password' name='password' type='password' placeholder =' Enter password' onChange={(e) => setPassword(e.target.value)} value={password}>
                        </input>
                        <br />
-                       <button onClick={handleSubmit}>Submit</button>
+                       <button className='form-input-btn' onClick={handleSubmit}>Submit</button>
+                       <br/>
+                       <span className='form-input-login'> Don't have an account? Sign up <a href="http://localhost:3000/user/signup">here</a></span>
                   </Form>
                </Modal>
           </div>
-
 )
 }
 
 export default LoginDisplay;
 // modal with input fields to login
+ 
+  //patterns to listen for:
+// const patterns = {
+//      username:/^[a-z\d]{4,10}$/i,// pattern means upper and lowercase accepted and must be 4-10
+//      password:/^[\w\W-]{5,10}/$, /*pattern means it accepts all alphanumerical enteries and @#%-*/ 
+// }

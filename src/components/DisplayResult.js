@@ -1,7 +1,7 @@
 // Displays modal with information but no "add to watchlist" etc. for users not logged in.
 
 import React, {useEffect, useState} from 'react';
-import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading} from 'reactstrap';
+import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading, Button} from 'reactstrap';
 
 const DisplayResult = (props) => {
     console.log(props);
@@ -22,7 +22,7 @@ const DisplayResult = (props) => {
                 props.result.map(r => {
                     return (
             <Modal isOpen={modal} contentClassName='customModal'>
-                <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>
+                {/* <ModalHeader><button onClick={handleModal}>X</button></ModalHeader> */}
                 <ModalBody>
                     <Row>
                         <Col>
@@ -36,6 +36,11 @@ const DisplayResult = (props) => {
                                 <ListGroupItem>{r.Genre}</ListGroupItem>
                                 <ListGroupItem>{r.Plot}</ListGroupItem>
                             </ListGroup>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                        <Button onClick={handleModal}>X</Button>
                         </Col>
                     </Row>
                 </ModalBody>

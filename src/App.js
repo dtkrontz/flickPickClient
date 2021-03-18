@@ -27,8 +27,18 @@ function App() {
 
   const authorizedViews = () => {
     // return (sessionToken !== localstorage.getItem('token') ? <Profile token={sessionToken} /> : <HomeComponent />)
-    return (sessionToken === localStorage.getItem('token') ? <Profile token={sessionToken} clearToken={clearToken} /> : <HomeComponent updateToken={updateToken} />)
+    return (sessionToken === localStorage.getItem('token') && localStorage.getItem('token') != undefined ? <Profile token={sessionToken} clearToken={clearToken} /> : <HomeComponent updateToken={updateToken} />)
   }
+
+  // const authorizedViews = () => {
+  //   // return (sessionToken !== localstorage.getItem('token') ? <Profile token={sessionToken} /> : <HomeComponent />)
+  //   if(sessionToken === localStorage.getItem('token') && sessionToken !== null) {
+  //     return (<Profile token={sessionToken} clearToken={clearToken} />)
+  //   } else {
+  //     return (<HomeComponent updateToken={updateToken} />)
+  //   }
+  // }
+  console.log(sessionToken);
 
   return (
     <div className="App">
