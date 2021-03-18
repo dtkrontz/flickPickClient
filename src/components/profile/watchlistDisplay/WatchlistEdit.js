@@ -7,6 +7,8 @@ import './WatchlistDisplay.css';
 import saveIcon from '../../assets/saveIcon.png';
 import deleteIcon from '../../assets/deleteIcon.png';
 
+import '../Profile.css';
+
 const WatchlistEdit = (props) => {
     console.log(props);
     const [editWatched, setEditWatched] = useState(props.watchlist.watched);
@@ -76,10 +78,10 @@ const WatchlistEdit = (props) => {
                 </Row>
                 <Row>
                     <Col className='save'>
-                        <Button color='primary' type='submit'><img src={saveIcon} alt='save' /> </Button>
+                        <Button color='primary' type='submit'><img className="editIcon" src={saveIcon} alt='save' /> </Button>
                     </Col>
                     <Col className='delete'>
-                        <Button size="small" color="primary" onClick={() => {deleteWatchlistItem(props.watchlist)}}><img src={deleteIcon} alt='delete' /></Button>
+                        <Button size="small" color="primary" onClick={() => {deleteWatchlistItem(props.watchlist)}}><img src={deleteIcon} className="editIcon" alt='delete' /></Button>
                     </Col>
                 </Row>
             </Form>

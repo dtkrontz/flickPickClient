@@ -19,9 +19,9 @@ const Signup = (props)=> {
           alert('Username needs to be more than 4 charaters')
           
        }  else if (username ===/^[a-z\d]{4,10}$/i){
-            alert('Username needs a number and a special charater')
+            alert('Username needs a number')
        } else{
-          fetch('http://localhost:3000/user/login',{
+          fetch('http://localhost:3000/user/register',{
                method: 'POST',
                body: JSON.stringify({user:{username: username, password: password }}),
                headers: new Headers({
