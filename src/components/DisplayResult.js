@@ -1,20 +1,20 @@
-// modal display of search with add to watchlist item.
+// Displays modal with information but no "add to watchlist" etc. for users not logged in.
 
 import React, {useEffect, useState} from 'react';
-import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading} from 'reactstrap';
-import WatchlistCreate from './WatchlistCreate';
+import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading, Button} from 'reactstrap';
 
-const WatchlistDisplay = (props) => {
-    // console.log(props);
+const DisplayResult = (props) => {
+    console.log(props);
     const [modal, setModal] = useState(true);
 
-    const handleModal = () => {
+    const handleModal = (event) => {
         setModal(false);
+        props.setDisplay(false);
     }
 
     useEffect (() => {
         setModal(true);
-    }, []);
+    }, [props.searchFetch]);
 
     return (
         <div className='modal'>
@@ -40,7 +40,7 @@ const WatchlistDisplay = (props) => {
                     </Row>
                     <Row>
                         <Col>
-                        <WatchlistCreate result={props.result} token={props.token} fetchWatchlist={props.fetchWatchlist} handleModal={handleModal}/>
+                        <Button onClick={handleModal}>X</Button>
                         </Col>
                     </Row>
                 </ModalBody>
@@ -49,8 +49,8 @@ const WatchlistDisplay = (props) => {
                 })
             }
         </div>
+
     );
 };
 
-
-export default WatchlistDisplay;
+export default DisplayResult;
