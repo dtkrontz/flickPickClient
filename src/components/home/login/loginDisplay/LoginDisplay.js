@@ -37,7 +37,7 @@ const LoginDisplay = (props)=> {
                <Modal isOpen={modal}  className='login'>
                     <ModalHeader>Login</ModalHeader>
                   <Form className='form-inputs' onSubmit={handleSubmit}>                  
-                      <ModalHeader><button onClick={handleModal}>X</button></ModalHeader>
+                      <ModalHeader><button onClick={handleModal}>Exit</button></ModalHeader>
                        <label> Username: </label>
                        <input id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
                        </input>
@@ -48,7 +48,7 @@ const LoginDisplay = (props)=> {
                        <br />
                        <button className='form-input-btn' onClick={handleSubmit}>Submit</button>
                        <br/>
-                       <span className='form-input-login'> Don't have an account? Sign up <a href="http://localhost:3000/user/signup">here</a></span>
+                       <span className='form-input-login'> Don't have an account? Sign up <a href="http://localhost:3001/user/register">here</a></span>
                   </Form>
                </Modal>
           </div>
