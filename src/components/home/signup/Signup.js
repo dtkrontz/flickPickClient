@@ -2,6 +2,8 @@
 import React, {useState} from 'react';
 import {Modal, ModalHeader, Form, Label, } from 'reactstrap';
 import './Signup.css'
+import APIURL from '../../../helpers/environment';
+
 
 const Signup = (props)=> {
     console.log(props);
@@ -21,20 +23,20 @@ const Signup = (props)=> {
           alert('Username needs to be more than 4 characters')
 
        } else if (regEx.test(username)){
-            fetch('http://localhost:3000/user/register',{
-                 method: 'POST',
-                 body: JSON.stringify({user:{username: username, password: password }}),
-                 headers: new Headers({
-                      'Content-Type': 'application/json'
-                 })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-       
-                 props.updateToken(data.token);
-            })
-            setModal(false);
+             fetch(`${APIURL}/user/register`,{
+               method: 'POST',
+               body: JSON.stringify({user:{username: username, password: password }}),
+               headers: new Headers({
+                    'Content-Type': 'application/json'
+               })
+          })
+          .then(response => response.json())
+          .then(data => {
+              console.log(data);
+     
+               props.updateToken(data.token);
+          })
+          setModal(false);
        } else {
           alert('Username needs a number')
         } };

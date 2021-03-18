@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import {Button} from 'reactstrap';
 import ProfileSearch from './ProfileSearch';
 import WatchlistTable from './watchlistDisplay/WatchlistTable';
+import APIURL from '../../helpers/environment';
+
 
 
 const Profile = (props) => {
@@ -11,7 +13,7 @@ const Profile = (props) => {
     const [watchlist, setWatchlist] = useState([]);
 
     const fetchWatchlist = () => {
-        fetch(`http://localhost:3000/watchlist/view`, {
+        fetch(`${APIURL}/watchlist/view`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
