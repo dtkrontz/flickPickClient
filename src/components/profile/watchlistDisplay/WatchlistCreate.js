@@ -3,8 +3,6 @@
 import React, {useState} from 'react';
 import {Button, Row, Col} from 'reactstrap';
 import addIcon from '../../assets/addIcon.png';
-import APIURL from '../../../helpers/environment';
-
 
 const WatchlistCreate = (props) => {
     // console.log(props.result);
@@ -21,7 +19,7 @@ const WatchlistCreate = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`${APIURL}/watchlist/create`, {
+        fetch(`http://localhost:3000/watchlist/create`, {
             method: 'POST',
             body: JSON.stringify({watchlist: {
                 title: title,
