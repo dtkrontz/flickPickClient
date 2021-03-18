@@ -2,6 +2,8 @@
 import React, {useState} from 'react';
 import {Modal, ModalHeader, Form, Label, } from 'reactstrap';
 import './Signup.css'
+import APIURL from '../../../helpers/environment';
+
 
 const Signup = (props)=> {
     console.log(props);
@@ -21,7 +23,7 @@ const Signup = (props)=> {
        }  else if (username !==/^[a-z\d]{4,10}$/i){
             alert('Username needs a number')
        } else {
-          fetch('http://localhost:3000/user/register',{
+          fetch(`${APIURL}/user/register`,{
                method: 'POST',
                body: JSON.stringify({user:{username: username, password: password }}),
                headers: new Headers({
