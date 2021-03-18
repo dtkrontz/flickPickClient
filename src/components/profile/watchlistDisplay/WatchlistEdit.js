@@ -6,8 +6,6 @@ import Button from '@material-ui/core/Button';
 import './WatchlistDisplay.css';
 import saveIcon from '../../assets/saveIcon.png';
 import deleteIcon from '../../assets/deleteIcon.png';
-import APIURL from '../../../helpers/environment';
-
 
 import '../Profile.css';
 
@@ -18,7 +16,7 @@ const WatchlistEdit = (props) => {
     
     const watchlistUpdate = () => {
         // event.preventDefault();
-        fetch(`${APIURL}/watchlist/${props.watchlist.id}`, {
+        fetch(`http://localhost:3000/watchlist/${props.watchlist.id}`, {
             method: 'PUT',
             body: JSON.stringify({watchlist: {
                 watched: editWatched,
@@ -35,7 +33,7 @@ const WatchlistEdit = (props) => {
 
     const deleteWatchlistItem = (watchlist) => {
         // console.log(watchlist);
-        fetch(`${APIURL}/watchlist/${watchlist.id}`, {
+        fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-Type': 'application/json',
