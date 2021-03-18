@@ -54,7 +54,7 @@ const handleModal = (event) => {
                   <Form className='form-inputs' onSubmit={handleSubmit}>                  
                       <ModalHeader><button onClick={handleModal}>Exit</button></ModalHeader>
                        <Label> Username: </Label>
-                       <input id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
+                       <input id='username' name='username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
                        </input>
                        <br/>
                        <Label> Password:</Label>

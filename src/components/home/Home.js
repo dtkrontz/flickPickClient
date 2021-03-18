@@ -6,7 +6,7 @@ import {Button} from 'reactstrap';
 import Signup from './signup/Signup'
 import SearchComponent from '../Search.js';
 import LoginDisplay from './login/loginDisplay/LoginDisplay';
-
+import '../home/Home.css';
 
 
 const HomeComponent = (props) => {
@@ -31,7 +31,7 @@ const HomeComponent = (props) => {
         //     <SearchComponent />
         // </div>
         <div className='home'>
-            <ul className='user'>
+            <ul className='userHome'>
                 <li onClick={() => signupHandler()}>Signup</li>
                 <li  onClick={() => loginHandler()}>Login</li>
             </ul>

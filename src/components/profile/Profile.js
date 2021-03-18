@@ -5,6 +5,7 @@ import {Button} from 'reactstrap';
 import ProfileSearch from './ProfileSearch';
 import WatchlistTable from './watchlistDisplay/WatchlistTable';
 import APIURL from '../../helpers/environment';
+import './Profile.css';
 
 
 
@@ -32,7 +33,7 @@ const Profile = (props) => {
 
     
     return (
-        <div className='home'>
+        <div className='profile'>
             <ul className='user'>
                 <li onClick={props.clearToken} >Logout</li>
             </ul>

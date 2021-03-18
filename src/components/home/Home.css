@@ -1,6 +1,6 @@
 /* @keyframes move {
-    from {background-image: url(../assets/flick2copy.gif);}
-    to {background-image: url(../assets/flickPick2.png)}
+    from {background-image: url(../assets/flickShadow2.png);}
+    to {background-image: url(../assets/flickShadow2.png)}
     } */
 
 body {
@@ -11,6 +11,7 @@ body {
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 h1 {
