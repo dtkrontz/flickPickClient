@@ -4,6 +4,7 @@
   }
   
   .form-input-btn {
+    font-family: abril-titling-condensed, serif;
     width: 80%;
     height: 50px;
     margin-top: 10px;
@@ -37,7 +38,10 @@
     text-align: center;
   }
   
-
+.Signup{
+    font-family: abril-titling-condensed, serif;
+   
+}
 
 
 
