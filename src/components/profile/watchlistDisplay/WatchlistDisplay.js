@@ -3,6 +3,7 @@
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading} from 'reactstrap';
 import WatchlistCreate from './WatchlistCreate';
+import './WatchlistDisplay.css';
 
 const WatchlistDisplay = (props) => {
     // console.log(props);
@@ -23,15 +24,15 @@ const WatchlistDisplay = (props) => {
                     return (
             <Modal isOpen={modal} contentClassName='customModal'>
                 {/* <ModalHeader><button onClick={handleModal}>X</button></ModalHeader> */}
-                <ModalBody>
+                <ModalBody className="searchModal">
                     <Row>
                         <Col>
                             <img src={r.Poster} />
                         </Col>
                         <Col>
-                            <ListGroup>
+                            <ListGroup className="listGroup">
                                 <ListGroupItemHeading>{r.Title}</ListGroupItemHeading>
-                                <ListGroupItem>{r.Rated}</ListGroupItem>
+                                <ListGroupItem color="#fffddf">{r.Rated}</ListGroupItem>
                                 <ListGroupItem>{r.Runtime}</ListGroupItem>
                                 <ListGroupItem>{r.Genre}</ListGroupItem>
                                 <ListGroupItem>{r.Plot}</ListGroupItem>
