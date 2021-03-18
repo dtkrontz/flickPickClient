@@ -26,3 +26,37 @@ body {
     list-style-type: none;
 }
 
+.carouselDiv {
+    max-width: 500px;
+    margin: auto;
+}
+
+.card {
+    height: 325px;
+    width: 200px;
+    font-size: 8px;
+    margin: auto;
+}
+
+.cardImg {
+    height: 30%;
+    width: 30%;
+    align-self: center;
+}
+
+.cardTitle {
+    font-size: 10px;
+}
+
+.cardSub {
+    font-size: 8px;
+}
+
+.editIcon {
+    max-width: 75%;
+    height: auto;
+  }
+
+.cardDiv {
+    padding-bottom: 1.5em;
+}

@@ -25,7 +25,8 @@ const ProfileSearch = (props) => {
         });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         setDisplay(false);
         setResult([]);
         searchFetch();
@@ -40,8 +41,10 @@ const ProfileSearch = (props) => {
 
     return (
         <div className='home'>
-            <input type="text" placeholder="movie title" onChange={(e) => setTitle(e.target.value)} />
-            <img className='searchIcon' src={searchIcon} alt='search' onClick={(event) => handleSubmit(event)} />
+            <form onSubmit={(e) => handleSubmit(e)}>
+                <input type="text" placeholder="Movie Title" onChange={(e) => setTitle(e.target.value)} />
+                <img className='searchIcon' src={searchIcon} alt='search' onClick={handleSubmit} />
+            </form>
             {/* <Button onClick={(event) => handleSubmit(event)}><img src={searchIcon} alt='search' /></Button> */}
             {display ? <WatchlistDisplay result= {result} handleSubmit={handleSubmit} token={props.token} fetchWatchlist={props.fetchWatchlist}/> : null}
         </div>
