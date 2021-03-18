@@ -46,4 +46,3 @@ const HomeComponent = (props) => {
 };
 
 export default HomeComponent;
-

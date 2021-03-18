@@ -2,6 +2,8 @@
 
 import React from 'react';
 import {Button} from 'reactstrap';
+import APIURL from '../../../helpers/environment';
+
 
 const WatchlistDelete = (props) => {
     console.log(props);
@@ -9,7 +11,7 @@ const WatchlistDelete = (props) => {
     console.log(watchlist);
     const deleteWatchlistItem = (watchlist) => {
         // console.log(watchlist);
-        fetch(`http://localhost:3000/watchlist/${watchlist}`, {
+        fetch(`${APIURL}/watchlist/${watchlist}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-Type': 'application/json',
