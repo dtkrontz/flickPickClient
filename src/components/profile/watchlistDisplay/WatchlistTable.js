@@ -12,7 +12,6 @@ import {
 import Carousel from "react-multi-carousel";
   import "react-multi-carousel/lib/styles.css";
 import WatchlistEdit from './WatchlistEdit';
-import '../Profile.css';
 
 const WatchlistTable = (props) => {
 
@@ -55,8 +54,8 @@ const WatchlistTable = (props) => {
             )
 
     return (
-      <div className="carouselDiv">
-      <Carousel swipeable={true} draggable={false} showDots={true} responsive={responsive} infinite={true} autoPlaySpeed={1000} keyBoardControl={true} transitionDuration={500} containerClass="carousel-container" removeArrowOnDeviceType={["mobile"]} dotListClass="custom-dot-list-style" itemClass="carousel-item-padding-40-px" > 
+      <div>
+      <Carousel className="carouselDiv" swipeable={true} draggable={false} showDots={true} responsive={responsive} infinite={true} autoPlaySpeed={1000} keyBoardControl={true} transitionDuration={500} containerClass="carousel-container" removeArrowOnDeviceType={["mobile"]} dotListClass="custom-dot-list-style" itemClass="carousel-item-padding-40-px" > 
       {slides}
     </Carousel>
     </div>

@@ -41,7 +41,7 @@ function App() {
   console.log(sessionToken);
 
   return (
-    <div className="App">
+    <div className="App" >
       {authorizedViews()}
     </div>
   );
