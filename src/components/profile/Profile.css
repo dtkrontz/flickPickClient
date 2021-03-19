@@ -1,9 +1,4 @@
 .profile {
-    background-image: url(../assets/flickPick2.png);
-    margin: auto;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
     text-align: left;
     margin: 10px;
 }
@@ -13,6 +8,11 @@
     cursor: pointer;
 }
 
+.Icon{
+    height: 10vh;
+    cursor: pointer;
+    margin-top: -10vh;
+}
 
 .userHome li {
     display: inline;
@@ -65,4 +65,8 @@
 
 .cardDiv {
     padding-bottom: 1.5em;
+}
+
+.pleaseWork {
+    margin-left: 20vw;
 }
