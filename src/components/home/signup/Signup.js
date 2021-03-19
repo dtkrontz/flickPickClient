@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {Modal, ModalHeader, Form, Label, } from 'reactstrap';
 import './Signup.css'
 import APIURL from '../../../helpers/environment';
+import exitIcon from '../../assets/exitIcon.png';
 
 
 const Signup = (props)=> {

@@ -3,27 +3,16 @@
     to {background-image: url(../assets/flickShadow2.png)}
     } */
 
-body {
+/* body {
     background-image: url(../assets/flickShadow2.png);
-    /* animation: move 5s infinite;
-    animation-iteration-count: 1; */
+    animation: move 5s infinite;
+    animation-iteration-count: 1;
     margin: auto;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-}
-
-h1 {
-    font-family: abril-titling-condensed, serif;
-    font-weight: 800;
-    font-style: italic;
-    position: absolute;
-    padding-top: 30vh;
-    font-size: 100px;
-    text-align: center;
-    width: 100%;
-}
+} */
 
 .searchIcon{
     height: 40px;
@@ -47,4 +36,17 @@ h1 {
     width: 100%;
     cursor: pointer;
     list-style-type: none;
+}
+
+.homeTitle {
+    font-family: abril-titling-condensed, serif;
+    font-weight: 800;
+    font-style: italic;
+    position: absolute;
+    padding-top: 25vh;
+    padding-left: 10vw;
+    font-size: 17vh;
+    text-align: center;
+    width: 100%;
+    letter-spacing: .2em;
 }

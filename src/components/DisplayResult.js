@@ -2,6 +2,7 @@
 
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading, Button} from 'reactstrap';
+import exitIcon from './assets/exitIcon.png';
 
 import './DisplayResult.css';
 
@@ -42,7 +43,8 @@ const DisplayResult = (props) => {
                     </Row>
                     <Row>
                         <Col>
-                        <Button onClick={handleModal}>X</Button>
+                        {/* <Button onClick={handleModal}>X</Button> */}
+                        <img className="Icon" src={exitIcon} onClick={handleModal} />
                         </Col>
                     </Row>
                 </ModalBody>
