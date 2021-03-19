@@ -16,8 +16,8 @@ const WatchlistEdit = (props) => {
     const [editWatched, setEditWatched] = useState(props.watchlist.watched);
     const [editRecommend, setEditRecommend] = useState(props.watchlist.recommend);
     
-    const watchlistUpdate = () => {
-        // event.preventDefault();
+    const watchlistUpdate = (event) => {
+        event.preventDefault();
         fetch(`${APIURL}/watchlist/${props.watchlist.id}`, {
             method: 'PUT',
             body: JSON.stringify({watchlist: {
@@ -64,7 +64,7 @@ const WatchlistEdit = (props) => {
 
     return(
         <div>
-            <Form onSubmit={watchlistUpdate}>
+            <Form onSubmit={(event) => watchlistUpdate(event)}>
                 <Row>
                     <Col>
                         <Label>
