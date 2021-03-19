@@ -3,7 +3,10 @@
 import React, {useState} from 'react';
 import {Button, Row, Col} from 'reactstrap';
 import addIcon from '../../assets/addIcon.png';
+import exitIcon from '../../assets/exitIcon.png';
 import APIURL from '../../../helpers/environment';
+
+import '../Profile.css';
 
 
 const WatchlistCreate = (props) => {
@@ -59,10 +62,12 @@ const WatchlistCreate = (props) => {
         <div>
             <Row>
                 <Col>
-                <Button onClick={(event) => handleSubmit(event)}><img src={addIcon} alt='Add to Watchlist' /></Button>
+                {/* <Button onClick={props.handleModal}>X</Button> */}
+                <img className="Icon" src={exitIcon} onClick={props.handleModal} />
                 </Col>
                 <Col>
-                <Button onClick={props.handleModal}>X</Button>
+                {/* <Button onClick={(event) => handleSubmit(event)}><img src={addIcon} alt='Add to Watchlist' /></Button> */}
+                <img className="Icon" src={addIcon} onClick={(event) => handleSubmit(event)} />
                 </Col>
             </Row>
         </div>

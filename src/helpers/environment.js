@@ -7,7 +7,8 @@ switch (window.location.hostname) {
         APIURL = 'http://localhost:3000';
         break;
     // this is the deployed react application
-    case 'dk-flick-pick-server.herokuapp.com':
+    case 'dk-flick-pick-client.herokuapp.com':
+    // case 'dk-flick-pick-server.herokuapp.com':
         // this is the full url of your deployed API
         APIURL = 'https://dk-flick-pick-server.herokuapp.com'
 }
