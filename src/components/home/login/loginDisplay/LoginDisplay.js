@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Modal, ModalHeader, Form, Label, Input,Button, ModalBody} from 'reactstrap';
 import './LoginDisplay.css';
+import APIURL from '../../../../helpers/environment';
 
 const LoginDisplay = (props)=> {
     console.log(props);
@@ -11,17 +12,7 @@ const LoginDisplay = (props)=> {
 
      const handleSubmit = (event) => {
      event.preventDefault();
-
-     if(password.length<5){
-          alert('Password needs to be more than 5 charaters')
-
-     }else if (username.length<4) {
-          alert('Username needs to be more than 4 charaters')
-
-       }  else if (username ===/[a-z\d]{4,10}/i){
-            alert('Username needs a number')
-       } else {
-           fetch('http://localhost:3000/user/login',{
+     fetch(`${APIURL}/user/login`,{
           method: 'POST',
           body: JSON.stringify({user:{username: username, password: password }}),
           headers: new Headers({

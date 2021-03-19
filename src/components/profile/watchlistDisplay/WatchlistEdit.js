@@ -3,10 +3,12 @@
 import React, {useState} from 'react';
 import { Form, Label, Row, Col} from 'reactstrap';
 import Button from '@material-ui/core/Button';
-import './WatchlistDisplay.css';
 import saveIcon from '../../assets/saveIcon.png';
 import deleteIcon from '../../assets/deleteIcon.png';
+import APIURL from '../../../helpers/environment';
 
+
+import './WatchlistDisplay.css';
 import '../Profile.css';
 
 const WatchlistEdit = (props) => {
@@ -16,7 +18,7 @@ const WatchlistEdit = (props) => {
     
     const watchlistUpdate = () => {
         // event.preventDefault();
-        fetch(`http://localhost:3000/watchlist/${props.watchlist.id}`, {
+        fetch(`${APIURL}/watchlist/${props.watchlist.id}`, {
             method: 'PUT',
             body: JSON.stringify({watchlist: {
                 watched: editWatched,
@@ -33,7 +35,7 @@ const WatchlistEdit = (props) => {
 
     const deleteWatchlistItem = (watchlist) => {
         // console.log(watchlist);
-        fetch(`http://localhost:3000/watchlist/${watchlist.id}`, {
+        fetch(`${APIURL}/watchlist/${watchlist.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-Type': 'application/json',
