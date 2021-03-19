@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import {Modal, ModalHeader, Form, Label,Button , ModalBody, Input} from 'reactstrap';
 import './Signup.css'
+import ExitIcon from '../../assets/exitIcon.png'
 
 const Signup = (props)=> {
     console.log(props);
@@ -47,7 +48,7 @@ const handleModal = (event) => {
  
         <div>
                <Modal isOpen={modal}  className='signup'>
-                    <ModalHeader className='header'style={{display:'flex',justifyContent:'center',alignItems:'center',background:'#9123bf'}}>Signup</ModalHeader>
+                    <ModalHeader className='header'style={{display:'flex',justifyContent:'center',alignItems:'center',background:'#9123bf',color:'#fedfff'}}>Signup</ModalHeader>
                     <ModalBody className= 'body'style={{background:'#fffddf'}}>
                   <Form className='form-inputs' onSubmit={handleSubmit}>              
                      
@@ -60,9 +61,8 @@ const handleModal = (event) => {
                        </Input>
                        <br />
                        <button className='form-input-btn' onClick={handleSubmit}>Submit</button>
-                      <Button className= 'button' onClick={handleModal} style={{background:'#9123bf'}}>Exit</Button>
+                      <Button className= 'button' onClick={handleModal} style={{background:'#9123bf',alignItems:'center'}}>Exit</Button>
                        <br/>
-                       <span className='form-input-login'> Don't have an account? Login <a href="http://localhost:3001/user/register">here</a></span>
                    </Form>
                    </ModalBody>
                </Modal>

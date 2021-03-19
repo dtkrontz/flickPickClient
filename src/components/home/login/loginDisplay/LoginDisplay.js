@@ -60,7 +60,6 @@ const LoginDisplay = (props)=> {
                   <button className='form-input-btn' onClick={handleSubmit}>Submit</button>
                  <Button className= 'button' onClick={handleModal} style={{background:'#9123bf'}}>Exit</Button>
                   <br/>
-                  <span className='form-input-login'> Don't have an account? Login <a href="http://localhost:3001/user/register">here</a></span>
               </Form>
               </ModalBody>
           </Modal>
