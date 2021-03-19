@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Modal, ModalHeader, Form, Label} from 'reactstrap';
+import {Modal, ModalHeader, Form, Label, Input,Button, ModalBody} from 'reactstrap';
 import './LoginDisplay.css';
 
 const LoginDisplay = (props)=> {
@@ -11,7 +11,17 @@ const LoginDisplay = (props)=> {
 
      const handleSubmit = (event) => {
      event.preventDefault();
-     fetch('http://localhost:3000/user/login',{
+
+     if(password.length<5){
+          alert('Password needs to be more than 5 charaters')
+
+     }else if (username.length<4) {
+          alert('Username needs to be more than 4 charaters')
+
+       }  else if (username ===/[a-z\d]{4,10}/i){
+            alert('Username needs a number')
+       } else {
+           fetch('http://localhost:3000/user/login',{
           method: 'POST',
           body: JSON.stringify({user:{username: username, password: password }}),
           headers: new Headers({
@@ -25,7 +35,7 @@ const LoginDisplay = (props)=> {
           props.updateToken(data.token);
      })
      setModal(false);
- }
+ }}
 
  const handleModal = (event) => {
      setModal(false);
@@ -34,25 +44,28 @@ const LoginDisplay = (props)=> {
 
      return (
           <div>
-               <Modal isOpen={modal}  className='login'>
-                    <ModalHeader>Login</ModalHeader>
-                  <Form className='form-inputs' onSubmit={handleSubmit}>                  
-                      <ModalHeader><button onClick={handleModal}>Exit</button></ModalHeader>
-                       <label> Username: </label>
-                       <input id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
-                       </input>
-                       <br/>
-                       <label> Password:</label>
-                       <input id='password' name='password' type='password' placeholder =' Enter password' onChange={(e) => setPassword(e.target.value)} value={password}>
-                       </input>
-                       <br />
-                       <button className='form-input-btn' onClick={handleSubmit}>Submit</button>
-                       <br/>
-                       <span className='form-input-login'> Don't have an account? Sign up <a href="http://localhost:3001/user/register">here</a></span>
-                  </Form>
-               </Modal>
-          </div>
-)
+          <Modal isOpen={modal}  className='signup'>
+               <ModalHeader className='header'style={{display:'flex',justifyContent:'center',alignItems:'center',background:'#9123bf'}}>Login</ModalHeader>
+               <ModalBody className= 'body'style={{background:'#fffddf'}}>
+             <Form className='form-inputs' onSubmit={handleSubmit}>              
+                
+                  <Label style={{display:'flex',justifyContent:'center',alignItems:'center'}}> Username: </Label>
+                  <Input style={{display:'flex',justifyContent:'center',alignItems:'center',  background: 'linear-gradient( 90deg ,#9123bf,#fedfff)'}} id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
+                  </Input>
+                  <br/>
+                  <Label style={{display:'flex',justifyContent:'center',alignItems:'center'}}> Password:</Label>
+                  <Input style={{display:'flex',justifyContent:'center',alignItems:'center', background: 'linear-gradient( 90deg ,#9123bf,#fedfff)', textColor:'black'}} id='password' name='password' type='password' placeholder =' Enter password' onChange={(e) => setPassword(e.target.value)} value={password}>
+                  </Input>
+                  <br />
+                  <button className='form-input-btn' onClick={handleSubmit}>Submit</button>
+                 <Button className= 'button' onClick={handleModal} style={{background:'#9123bf'}}>Exit</Button>
+                  <br/>
+                  <span className='form-input-login'> Don't have an account? Login <a href="http://localhost:3001/user/register">here</a></span>
+              </Form>
+              </ModalBody>
+          </Modal>
+     </div>
+     )
 }
 
 export default LoginDisplay;
