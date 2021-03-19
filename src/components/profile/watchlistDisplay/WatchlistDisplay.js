@@ -32,10 +32,10 @@ const WatchlistDisplay = (props) => {
                         <Col>
                             <ListGroup className="listGroup">
                                 <ListGroupItemHeading>{r.Title}</ListGroupItemHeading>
-                                <ListGroupItem color="#fffddf">{r.Rated}</ListGroupItem>
-                                <ListGroupItem>{r.Runtime}</ListGroupItem>
-                                <ListGroupItem>{r.Genre}</ListGroupItem>
-                                <ListGroupItem>{r.Plot}</ListGroupItem>
+                                <ListGroupItem color="warning">{r.Rated}</ListGroupItem>
+                                <ListGroupItem color="warning">{r.Runtime}</ListGroupItem>
+                                <ListGroupItem color="warning">{r.Genre}</ListGroupItem>
+                                <ListGroupItem color="warning">{r.Plot}</ListGroupItem>
                             </ListGroup>
                         </Col>
                     </Row>

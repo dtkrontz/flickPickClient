@@ -39,7 +39,13 @@ const Profile = (props) => {
             </ul>
             {/* <Button onClick={props.clearToken}>Logout</Button> */}
             <ProfileSearch token={props.token} fetchWatchlist={fetchWatchlist} />
+            <div className='pleaseWork'>
+            <br />
+            <br />
+            <br />
+            <br />
             <WatchlistTable watchlist={watchlist} fetchWatchlist={fetchWatchlist} token={props.token} />
+            </div>
         </div>
     )
 };

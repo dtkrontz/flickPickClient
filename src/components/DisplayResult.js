@@ -2,6 +2,9 @@
 
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalHeader, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading, Button} from 'reactstrap';
+import exitIcon from './assets/exitIcon.png';
+
+import './DisplayResult.css';
 
 const DisplayResult = (props) => {
     console.log(props);
@@ -23,7 +26,7 @@ const DisplayResult = (props) => {
                     return (
             <Modal isOpen={modal} contentClassName='customModal'>
                 {/* <ModalHeader><button onClick={handleModal}>X</button></ModalHeader> */}
-                <ModalBody>
+                <ModalBody className="searchModal">
                     <Row>
                         <Col>
                             <img src={r.Poster} />
@@ -31,16 +34,17 @@ const DisplayResult = (props) => {
                         <Col>
                             <ListGroup>
                                 <ListGroupItemHeading>{r.Title}</ListGroupItemHeading>
-                                <ListGroupItem>{r.Rated}</ListGroupItem>
-                                <ListGroupItem>{r.Runtime}</ListGroupItem>
-                                <ListGroupItem>{r.Genre}</ListGroupItem>
-                                <ListGroupItem>{r.Plot}</ListGroupItem>
+                                <ListGroupItem color="warning">{r.Rated}</ListGroupItem>
+                                <ListGroupItem color="warning">{r.Runtime}</ListGroupItem>
+                                <ListGroupItem color="warning">{r.Genre}</ListGroupItem>
+                                <ListGroupItem color="warning">{r.Plot}</ListGroupItem>
                             </ListGroup>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                        <Button onClick={handleModal}>X</Button>
+                        {/* <Button onClick={handleModal}>X</Button> */}
+                        <img className="Icon" src={exitIcon} onClick={handleModal} />
                         </Col>
                     </Row>
                 </ModalBody>
