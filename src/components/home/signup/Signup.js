@@ -21,8 +21,6 @@ const Signup = (props)=> {
        }  else if (username ===/^[a-z\d]{4,10}$/i){
             alert('Username needs a number')
        } else {
-
-          
           fetch('http://localhost:3000/user/register',{
                method: 'POST',
                body: JSON.stringify({user:{username: username, password: password }}),
