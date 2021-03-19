@@ -13,7 +13,7 @@ const SearchComponent = (props) => {
     const [title, setTitle] = useState('');
 
     const key = '&apikey=87a5adba';
-    const url ='http://www.omdbapi.com/?';
+    const url ='https://www.omdbapi.com/?';
 
     const searchFetch = async () => { 
         await fetch(`${url}t=${title}${key}`)
