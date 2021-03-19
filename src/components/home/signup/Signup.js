@@ -50,20 +50,20 @@ const handleModal = (event) => {
  
         <div>
                <Modal isOpen={modal}  className='signup'>
-                    <ModalHeader className='header'style={{display:'flex',justifyContent:'center',alignItems:'center',background:'#9123bf',color:'#fedfff'}}>Signup</ModalHeader>
+                    <ModalHeader className='header'style={{display:'flex',justifyContent:'center',alignItems:'center',background:'#9123bf', color:'#fedfff'}}>Signup</ModalHeader>
                     <ModalBody className= 'body'style={{background:'#fffddf'}}>
                   <Form className='form-inputs' onSubmit={handleSubmit}>              
                      
                        <Label style={{display:'flex',justifyContent:'center',alignItems:'center'}}> Username: </Label>
-                       <Input style={{display:'flex',justifyContent:'center',alignItems:'center',  background: 'linear-gradient( 90deg ,#9123bf,#fedfff)'}} id='username' name= 'username' type= 'text' placeholder='Enter username' onChange={(e) => setUserName(e.target.value)} value={username} >   
+                       <Input style={{display:'flex',justifyContent:'center',alignItems:'center',  background: 'linear-gradient( 90deg ,#9123bf,#fedfff)', color: '#fffddf'}} id='username' name= 'username' type= 'text' onChange={(e) => setUserName(e.target.value)} value={username} >   
                        </Input>
                        <br/>
                        <Label style={{display:'flex',justifyContent:'center',alignItems:'center'}}> Password:</Label>
-                       <Input style={{display:'flex',justifyContent:'center',alignItems:'center', background: 'linear-gradient( 90deg ,#9123bf,#fedfff)', textColor:'black'}} id='password' name='password' type='password' placeholder =' Enter password' onChange={(e) => setPassword(e.target.value)} value={password}>
+                       <Input style={{display:'flex',justifyContent:'center',alignItems:'center', background: 'linear-gradient( 90deg ,#9123bf,#fedfff)', color: '#fffddf'}} id='password' name='password' type='password' onChange={(e) => setPassword(e.target.value)} value={password}>
                        </Input>
                        <br />
                        <button className='form-input-btn' onClick={handleSubmit}>Submit</button>
-                      <Button className= 'button' onClick={handleModal} style={{background:'#9123bf',alignItems:'center'}}>Exit</Button>
+                      <button className= 'form-input-btn' onClick={handleModal}>Exit</button>
                        <br/>
                    </Form>
                    </ModalBody>
